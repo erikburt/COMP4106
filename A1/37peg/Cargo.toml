@@ -1,0 +1,10 @@
+[package]
+name = "rust"
+version = "0.1.0"
+authors = ["Erik Burton <eb.erik.burton@gmail.com>"]
+
+[profile.dev]
+opt-level = 3
+
+[dependencies]
+priority-queue="0.4"
