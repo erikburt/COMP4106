@@ -33,8 +33,8 @@ const BASE_BFS: [[u8;7]; 7] = [
 
 fn main() {
     // run_dfs();
-    // run_bfs();
-    run_astar();
+    run_bfs();
+    // run_astar();
 }
 
 fn run_dfs() {
@@ -112,6 +112,8 @@ fn bfs(start:u64) -> [u64;36]  {
             }
         }
     }
+
+    println!("Queue: {}\nVisited: {}\nSum: {}", queue.len(), visited.len(),  queue.len()+visited.len());
 
     queue.clear();
     queue.push_front(end);

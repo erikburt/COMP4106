@@ -125,3 +125,7 @@ write_state_id
 0 0 0 0 0 0 0
 
 0
+
+Queue: 0
+Visited: 3351
+Sum: 3351
