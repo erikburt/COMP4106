@@ -80,7 +80,7 @@ impl Board {
         return id;
     }
 
-    fn count_zeros(id: u64) -> u8 {
+    pub fn count_zeros(id: u64) -> u8 {
         let mut bit:u64 = 1 << 63;
         let mut zeros:u8 = 0;
 

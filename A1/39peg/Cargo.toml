@@ -7,3 +7,4 @@ authors = ["Erik Burton <eb.erik.burton@gmail.com>"]
 opt-level = 3
 
 [dependencies]
+priority-queue="0.4"
