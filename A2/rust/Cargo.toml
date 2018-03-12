@@ -1,0 +1,6 @@
+[package]
+name = "A2"
+version = "0.1.0"
+authors = ["Erik Burton <eb.erik.burton@gmail.com>"]
+
+[dependencies]
