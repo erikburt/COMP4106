@@ -5,11 +5,14 @@ const { Board, StartState } = b;
 const N_INF = Number.NEGATIVE_INFINITY;
 const P_INF = Number.POSITIVE_INFINITY;
 
+let node_count = 0, turn_count = 0;
+
 // let game = runGameRandom();
 // outputArray(game);
 // outputJSON(game, "out/outr2.json");
 
 let game = runGame();
+console.log(node_count);
 //outputArray(game);
 outputJSON(game, "out/out3v2.json");
 
@@ -47,19 +50,24 @@ function runGame() {
     curState = board;
 
     while (true) {
-        curState = alphabeta(curState, 2, N_INF, P_INF, true, 3).inst;
+        curState = alphabeta(curState, 2, N_INF, P_INF, true, 1).inst;
         states.push({ state: curState.state, player: 1 });
+
+        console.log(turn_count); turn_count = 0;
 
         if (curState.isWinState() || curState.isLoseState()) return states;
 
         curState = alphabeta(curState, 2, N_INF, P_INF, true, 2).inst;
         states.push({ state: curState.state, player: 2 });
 
+        console.log(turn_count); turn_count = 0;
+
         if (curState.isWinState() || curState.isLoseState()) return states;
     }
 }
 
 function alphabeta(node, depth, alpha, beta, maximizingPlayer, heuristic) {
+    node_count++; turn_count++;
     if (depth === 0) return { score: node.getScore(heuristic), inst: node };
 
     let best = { score: 0, inst: node };
