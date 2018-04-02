@@ -1,15 +1,47 @@
 let rand = require("randgen");
 
-let mapping = [1, 2, 3, 4, 5, 6, 7, 8]; //getRandomMap();
+let mapping = [1, 2, 3, 4, 5, 6, 7, 8]; //getRandomMap(); //
 let nodes_copy = [0, 0, 0, 0, 0, 0, 0, 0]
 
 main();
-console.log('\n\n', nodes_copy)
+
 function main() {
-    // tsetlin(10, 3, 100);
-    // krinsky(10, 3, 100);
-    // kryvlov(10, 1, 3, 100);
-    lri(.9, 3, 100);
+    const MEMORY = 5;
+    const SIGMA = 2;
+    const SIZE = 100;
+    const BETA = 1;
+    const FACTOR = .9;
+
+    let resTsetlin = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let resKrinsky = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let resKryvlov = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let resLri = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let a, b, c, d, add = 0;
+
+    for (var i = 0; i < 15000; i++) {
+        resTsetlin[(a = tsetlin(MEMORY, SIGMA, SIZE))]++;
+        resKrinsky[(b = krinsky(MEMORY, SIGMA, SIZE))]++;
+        resKryvlov[(c = kryvlov(MEMORY, BETA, SIGMA, SIZE))]++;
+        resLri[(d = lri(FACTOR, SIGMA, SIZE))]++;
+
+        if (i >= 10000) {
+            add += (a + b + c + d)
+        }
+    }
+
+    console.log(`,${mapping}`);
+    console.log(`Tsetlin, ${resTsetlin}`);
+    console.log(`Krinsky, ${resKrinsky}`);
+    console.log(`Kryvlov, ${resKryvlov}`);
+    console.log(`LRI, ${resLri}`);
+
+    console.log(add / 20000);
+    //console.log(`Ensemble: ${ensemble}`);
+}
+
+function run() {
+
 }
 
 function tsetlin(size, sigma, n) {
@@ -26,7 +58,7 @@ function tsetlin(size, sigma, n) {
         }
     }
 
-    console.log(nodes);
+    return getMaxIndex(nodes);
 }
 
 function krinsky(size, sigma, n) {
@@ -43,7 +75,7 @@ function krinsky(size, sigma, n) {
         }
     }
 
-    console.log(nodes);
+    return getMaxIndex(nodes);
 }
 
 function kryvlov(size, beta, sigma, n) {
@@ -64,7 +96,7 @@ function kryvlov(size, beta, sigma, n) {
         }
     }
 
-    console.log(nodes);
+    return getMaxIndex(nodes);
 }
 
 function lri(lambda, sigma, n) {
@@ -88,7 +120,7 @@ function lri(lambda, sigma, n) {
         }
     }
 
-    console.log(nodes);
+    return getMaxIndex(nodes);
 }
 
 function isMax(action, sigma) {
@@ -98,13 +130,12 @@ function isMax(action, sigma) {
     }
 
     let max_index = 0;
+
     for (var i = 0; i < val.length; i++) {
         if (val[max_index] < val[i]) {
             max_index = i;
         }
     }
-
-    nodes_copy[max_index]++;
 
     return action === max_index;
 
@@ -113,7 +144,28 @@ function isMax(action, sigma) {
         let noise = rand.rnorm(0, sigma);
         return (3 * gi) / 2 + noise;
     }
+}
 
+function getMaxIndex(nodes) {
+    let max_index = 0;
+    let all_same = true;
+
+    for (var i = 1; i < nodes.length; i++) {
+        if (nodes[i] !== nodes[0]) {
+            all_same = false;
+            break;
+        }
+    }
+
+    if (all_same) return 8;
+
+    for (var i = 0; i < nodes.length; i++) {
+        if (nodes[max_index] < nodes[i]) {
+            max_index = i;
+        }
+    }
+
+    return max_index;
 }
 
 
