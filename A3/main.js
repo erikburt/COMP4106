@@ -17,7 +17,8 @@ function main() {
 
 //------------------TSETLIN----------------------
 function tsetlin_ens() {
-    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0];
+    let t0 = new Date().getTime();
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0], avg;
     let start = 0, start_average = 0, memory = 5;
 
     for (var i = 0; i < TRIALS; i++) {
@@ -33,7 +34,7 @@ function tsetlin_ens() {
         ensemble[run_tsetlin(start, start_average, memory)]++;
     }
 
-    console.log("tsetlin:", ensemble, weightedAvg(ensemble));
+    console.log("tsetlin:", ensemble, (avg = weightedAvg(ensemble)), avg / 8, (new Date().getTime()) - t0);
 }
 
 function run_tsetlin(start_choice, start_average, memory) {
@@ -71,7 +72,8 @@ function run_tsetlin(start_choice, start_average, memory) {
 
 //------------------KRINSKY----------------------
 function krinsky_ens() {
-    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0];
+    let t0 = new Date().getTime();
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0], avg;
     let start = 0, start_average = 0, memory = 5;
 
     for (var i = 0; i < TRIALS; i++) {
@@ -87,7 +89,7 @@ function krinsky_ens() {
         ensemble[run_krinsky(start, start_average, memory)]++;
     }
 
-    console.log("krinsky:", ensemble, weightedAvg(ensemble));
+    console.log("krinsky:", ensemble, (avg = weightedAvg(ensemble)), avg / 8, (new Date().getTime()) - t0);
 }
 
 function run_krinsky(start_choice, start_average, memory) {
@@ -126,7 +128,8 @@ function run_krinsky(start_choice, start_average, memory) {
 
 //------------------KRYLOV----------------------
 function krylov_ens() {
-    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0];
+    let t0 = new Date().getTime();
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0], avg;
     let start = 0, start_average = 0, memory = 5;
 
     for (var i = 0; i < TRIALS; i++) {
@@ -141,7 +144,7 @@ function krylov_ens() {
 
         ensemble[run_krylov(start, start_average, memory)]++;
     }
-    console.log("krylov:", ensemble, weightedAvg(ensemble));
+    console.log("krylov:", ensemble, (avg = weightedAvg(ensemble)), avg / 8, (new Date().getTime()) - t0);
 }
 
 function run_krylov(start_choice, start_average, memory) {
@@ -183,8 +186,9 @@ function run_krylov(start_choice, start_average, memory) {
 
 //------------------KRYLOV----------------------
 function lri_ens() {
-    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0];
-    let start = 0, start_average = 0, lambda = .59;
+    let t0 = new Date().getTime();
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0], avg;
+    let start = 0, start_average = 50, lambda = .59;
 
     for (var i = 0; i < TRIALS; i++) {
         //Random start everytime
@@ -199,7 +203,7 @@ function lri_ens() {
         ensemble[run_lri(start, start_average, lambda)]++;
     }
 
-    console.log("lri:", ensemble, weightedAvg(ensemble));
+    console.log("lri:", ensemble, (avg = weightedAvg(ensemble)), avg / 8, (new Date().getTime()) - t0);
 }
 
 
@@ -211,6 +215,7 @@ function run_lri(start_choice, start_average, lambda) {
     let choice = { cur: start_choice, n: 0 };
     let reward = false;
     let str = 0;
+
 
     for (var i = 1; i <= ITERATIONS; i++) {
         choice = automata(choice, reward);
