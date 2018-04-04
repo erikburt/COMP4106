@@ -1,8 +1,9 @@
 let rand = require("randgen");
+let columnify = require("columnify");
 
 const MAPPING = getRandomMap(); //[1, 2, 3, 4, 5, 6, 7, 8];
 const INDEX_EIGHT = MAPPING.indexOf(8);
-const SIGMA = 3;
+const SIGMA = 1;
 const TRIALS = 100;
 const ENS = 5000;
 const ITERATIONS = 15000;
@@ -11,10 +12,16 @@ console.log("mapping", MAPPING);
 main();
 
 function main() {
-    tsetlin_ens();
-    krinsky_ens();
-    krylov_ens();
-    lri_ens();
+    let out = [];
+
+    out.push(tsetlin_ens());
+    out.push(krinsky_ens());
+    out.push(krylov_ens());
+    out.push(lri_cur_ens());
+    out.push(lri_pro_ens());
+    out.push(lri_rand_ens());
+
+    console.log(columnify(out, { columns: ["name", "weightedavg", "accuracy", "time", "0", "1", "2", "3", "4", "5", "6", "7"] }));
 }
 
 //------------------TSETLIN----------------------
@@ -40,7 +47,7 @@ function tsetlin_ens() {
         }
     }
 
-    console.log("tsetlin:", ensemble, (avg = weightedAvg(ensemble)), ensemble[INDEX_EIGHT] / (TRIALS * ENS), avg / 8, (new Date().getTime()) - t0);
+    return formatObj("Tsetlin", ensemble, t0);
 }
 
 function run_tsetlin(start_choice, start_average, memory) {
@@ -102,7 +109,8 @@ function krinsky_ens() {
         }
     }
 
-    console.log("krinsky:", ensemble, (avg = weightedAvg(ensemble)), ensemble[INDEX_EIGHT] / (TRIALS * ENS), avg / 8, (new Date().getTime()) - t0);
+    return formatObj("Krinsky", ensemble, t0);
+
 }
 
 function run_krinsky(start_choice, start_average, memory) {
@@ -164,7 +172,8 @@ function krylov_ens() {
             ensemble[j] += res[j];
         }
     }
-    console.log("krylov:", ensemble, (avg = weightedAvg(ensemble)), ensemble[INDEX_EIGHT] / (TRIALS * ENS), avg / 8, (new Date().getTime()) - t0);
+
+    return formatObj("Krylov", ensemble, t0);
 }
 
 function run_krylov(start_choice, start_average, memory) {
@@ -208,7 +217,7 @@ function run_krylov(start_choice, start_average, memory) {
 
 
 //------------------LRI----------------------
-function lri_ens() {
+function lri_cur_ens() {
     let t0 = new Date().getTime();
     let ensemble = [0, 0, 0, 0, 0, 0, 0, 0], avg;
     let start = 0, start_average = 50, lambda = .89;
@@ -223,18 +232,70 @@ function lri_ens() {
         //Increment factor from .89 to .99
         lambda += .001;
 
-        let res = run_lri(start, start_average, lambda);
+        let res = run_lri(start, start_average, lambda, false);
 
         for (var j = 0; j < ensemble.length; j++) {
             ensemble[j] += res[j];
         }
     }
 
-    console.log("lri:", ensemble, (avg = weightedAvg(ensemble)), ensemble[INDEX_EIGHT] / (TRIALS * ENS), avg / 8, (new Date().getTime()) - t0);
+    return formatObj("LRI (c)", ensemble, t0);
+}
+
+//------------------LRI----------------------
+function lri_pro_ens() {
+    let t0 = new Date().getTime();
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0], avg;
+    let start = 0, start_average = 50, lambda = .89;
+
+    for (var i = 0; i < TRIALS; i++) {
+        //Random start everytime
+        start = Math.floor(Math.random(8));
+
+        //Increment start avg from 0 to 100
+        start_average++;
+
+        //Increment factor from .89 to .99
+        lambda += .001;
+
+        let res = run_lri(start, start_average, lambda, true);
+
+        for (var j = 0; j < ensemble.length; j++) {
+            ensemble[j] += res[j];
+        }
+    }
+
+    return formatObj("LRI (p)", ensemble, t0);
+}
+
+//------------------LRI----------------------
+function lri_rand_ens() {
+    let t0 = new Date().getTime();
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0], avg;
+    let start = 0, start_average = 50, lambda = .89;
+
+    for (var i = 0; i < TRIALS; i++) {
+        //Random start everytime
+        start = Math.floor(Math.random(8));
+
+        //Increment start avg from 0 to 100
+        start_average++;
+
+        //Increment factor from .89 to .99
+        lambda += .001;
+
+        let res = run_lri(start, start_average, lambda, Math.round(Math.random(), 1));
+
+        for (var j = 0; j < ensemble.length; j++) {
+            ensemble[j] += res[j];
+        }
+    }
+
+    return formatObj("LRI (r)", ensemble, t0);
 }
 
 
-function run_lri(start_choice, start_average, lambda) {
+function run_lri(start_choice, start_average, lambda, percent) {
     let ensemble = [0, 0, 0, 0, 0, 0, 0, 0]
     const NUM_STATES = 8;
 
@@ -264,7 +325,10 @@ function run_lri(start_choice, start_average, lambda) {
             probabilities[choice.cur] = 1 - total;
         }
 
-        if (ITERATIONS - i < ENS) ensemble[choice.cur]++;
+        if (ITERATIONS - i < ENS) {
+            if (percent) ensemble[indexOfMax(probabilities)]++;
+            else ensemble[choice.cur]++;
+        }
     }
 
     return ensemble;
@@ -291,6 +355,39 @@ function weightedAvg(ens) {
     }
 
     return total / (TRIALS * ENS);
+}
+
+function indexOfMax(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+
+    var max = arr[0];
+    var maxIndex = 0;
+
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+
+    return maxIndex;
+}
+
+function formatObj(name, ensemble, t0) {
+    let obj = { name };
+
+    for (var j = 0; j < ensemble.length; j++) {
+        obj[`${j}`] = ensemble[j];
+    }
+
+
+    obj.weightedavg = weightedAvg(ensemble);
+    obj.accuracy = ensemble[INDEX_EIGHT] / (TRIALS * ENS);
+    obj.time = (new Date().getTime()) - t0;
+
+    return obj;
 }
 
 function getRandomMap() {
