@@ -1,173 +1,262 @@
 let rand = require("randgen");
 
-let mapping = [1, 2, 3, 4, 5, 6, 7, 8]; //getRandomMap(); //
-let nodes_copy = [0, 0, 0, 0, 0, 0, 0, 0]
+const MAPPING = getRandomMap(); //[1, 2, 3, 4, 5, 6, 7, 8];
+const SIGMA = 3;
+const TRIALS = 100;
+const ITERATIONS = 1000;
 
+console.log("mapping", MAPPING);
 main();
 
 function main() {
-    const MEMORY = 5;
-    const SIGMA = 2;
-    const SIZE = 100;
-    const BETA = 1;
-    const FACTOR = .9;
+    tsetlin_ens();
+    krinsky_ens();
+    krylov_ens();
+    lri_ens();
+}
 
-    let resTsetlin = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    let resKrinsky = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    let resKryvlov = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    let resLri = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    let a, b, c, d, add = 0;
+//------------------TSETLIN----------------------
+function tsetlin_ens() {
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0];
+    let start = 0, start_average = 0, memory = 5;
 
-    for (var i = 0; i < 15000; i++) {
-        resTsetlin[(a = tsetlin(MEMORY, SIGMA, SIZE))]++;
-        resKrinsky[(b = krinsky(MEMORY, SIGMA, SIZE))]++;
-        resKryvlov[(c = kryvlov(MEMORY, BETA, SIGMA, SIZE))]++;
-        resLri[(d = lri(FACTOR, SIGMA, SIZE))]++;
+    for (var i = 0; i < TRIALS; i++) {
+        //Random start everytime
+        start = Math.floor(Math.random(8));
 
-        if (i >= 10000) {
-            add += (a + b + c + d)
-        }
+        //Random memory from [3,15)
+        memory = Math.floor(Math.random(10)) + 3;
+
+        //Increment start avg from 0 to 100
+        start_average++;
+
+        ensemble[run_tsetlin(start, start_average, memory)]++;
     }
 
-    console.log(`,${mapping}`);
-    console.log(`Tsetlin, ${resTsetlin}`);
-    console.log(`Krinsky, ${resKrinsky}`);
-    console.log(`Kryvlov, ${resKryvlov}`);
-    console.log(`LRI, ${resLri}`);
-
-    console.log(add / 20000);
-    //console.log(`Ensemble: ${ensemble}`);
+    console.log("tsetlin:", ensemble, weightedAvg(ensemble));
 }
 
-function run() {
+function run_tsetlin(start_choice, start_average, memory) {
+    const N = memory;
+    const NUM_STATES = 8;
 
-}
+    let average = start_average;
+    let choice = { cur: start_choice, n: 0 };
+    let reward = false;
+    let str = 0;
 
-function tsetlin(size, sigma, n) {
-    let node_number = 0;
-    let nodes = [0, 0, 0, 0, 0, 0, 0, 0];
+    for (var i = 1; i <= ITERATIONS; i++) {
+        choice = automata(choice, reward);
+        str = strength(choice.cur);
+        reward = str > average;
 
-    for (var i = 0; i < n; i++) {
-        if (isMax(node_number, sigma)) {
-            if (nodes[node_number] !== size) nodes[node_number]++;
-        }
-        else {
-            if (nodes[node_number] === 0) node_number = (node_number + 1) % 8;
-            else nodes[node_number] -= 1;
-        }
+        average = ((i * average) + str) / (i + 1);
     }
 
-    return getMaxIndex(nodes);
-}
+    return choice.cur;
 
-function krinsky(size, sigma, n) {
-    let node_number = 0;
-    let nodes = [0, 0, 0, 0, 0, 0, 0, 0];
-
-    for (var i = 0; i < n; i++) {
-        if (isMax(node_number, sigma)) {
-            if (nodes[node_number] !== size) nodes[node_number] = size;
+    //TSETLIN
+    function automata(i, reward) {
+        if (reward) {
+            if (i.n < N) i.n++;
         }
         else {
-            if (nodes[node_number] === 0) node_number = (node_number + 1) % 8;
-            else nodes[node_number] -= 1;
+            if (i.n === 0) i.cur = (i.cur + 1) % NUM_STATES;
+            else i.n--;
         }
+
+        return i;
+    }
+}
+
+//------------------KRINSKY----------------------
+function krinsky_ens() {
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0];
+    let start = 0, start_average = 0, memory = 5;
+
+    for (var i = 0; i < TRIALS; i++) {
+        //Random start everytime
+        start = Math.floor(Math.random(8));
+
+        //Random memory from [2,5)
+        memory = Math.floor(Math.random(4)) + 2;
+
+        //Increment start avg from 0 to 100
+        start_average++;
+
+        ensemble[run_krinsky(start, start_average, memory)]++;
     }
 
-    return getMaxIndex(nodes);
+    console.log("krinsky:", ensemble, weightedAvg(ensemble));
 }
 
-function kryvlov(size, beta, sigma, n) {
-    let node_number = 0;
-    let nodes = [0, 0, 0, 0, 0, 0, 0, 0];
+function run_krinsky(start_choice, start_average, memory) {
+    const N = memory;
+    const NUM_STATES = 8;
 
-    for (var i = 0; i < n; i++) {
-        if (isMax(node_number, sigma)) {
-            if (nodes[node_number] !== size) nodes[node_number] = size;
+    let average = start_average;
+    let choice = { cur: start_choice, n: 0 };
+    let reward = false;
+    let str = 0;
+
+    for (var i = 1; i <= TRIALS; i++) {
+        choice = automata(choice, reward);
+        str = strength(choice.cur);
+        reward = str > average;
+
+        average = ((i * average) + str) / (i + 1);
+    }
+
+    return choice.cur;
+
+    //Krinsky
+    function automata(i, reward) {
+        if (reward) {
+            if (i.n < N) i.n = N;
         }
         else {
-            if (nodes[node_number] === 0) node_number = (node_number + 1) % 8;
-            else if (nodes[node_number] >= size - beta || nodes[node_number] <= beta) {
-                if (Math.round(Math.random(), 1)) nodes[node_number]++;
-                else nodes[node_number]--;
+            if (i.n === 0) i.cur = (i.cur + 1) % NUM_STATES;
+            else i.n--;
+        }
+
+        return i;
+    }
+}
+
+
+//------------------KRYLOV----------------------
+function krylov_ens() {
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0];
+    let start = 0, start_average = 0, memory = 5;
+
+    for (var i = 0; i < TRIALS; i++) {
+        //Random start everytime
+        start = Math.floor(Math.random(8));
+
+        //Random memory from [2,5)
+        memory = Math.floor(Math.random(4)) + 2;
+
+        //Increment start avg from 0 to 100
+        start_average++;
+
+        ensemble[run_krylov(start, start_average, memory)]++;
+    }
+    console.log("krylov:", ensemble, weightedAvg(ensemble));
+}
+
+function run_krylov(start_choice, start_average, memory) {
+    const N = memory;
+    const NUM_STATES = 8;
+
+    let average = start_average;
+    let choice = { cur: start_choice, n: 0 };
+    let reward = false;
+    let str = 0;
+
+    for (var i = 1; i <= ITERATIONS; i++) {
+        choice = automata(choice, reward);
+        str = strength(choice.cur);
+        reward = str > average;
+
+        average = ((i * average) + str) / (i + 1);
+    }
+
+    return choice.cur;
+
+    //KRYLOV
+    function automata(i, reward) {
+        if (reward) {
+            if (i.n < N) i.n++;
+        }
+        else {
+            if (i.n === 0) i.cur = (i.cur + 1) % NUM_STATES;
+            else {
+                if (Math.round(Math.random(), 1)) i.n = (i.n + 1) % N;
+                else i.n--;
             }
-            else nodes[node_number] -= 1;
         }
-    }
 
-    return getMaxIndex(nodes);
+        return i;
+    }
 }
 
-function lri(lambda, sigma, n) {
-    let nodes = [.125, .125, .125, .125, .125, .125, .125, .125];
-    let node_number = 0;
 
-    for (var i = 0; i < n; i++) {
-        if (isMax(node_number, sigma)) {
+//------------------KRYLOV----------------------
+function lri_ens() {
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0];
+    let start = 0, start_average = 0, lambda = .59;
+
+    for (var i = 0; i < TRIALS; i++) {
+        //Random start everytime
+        start = Math.floor(Math.random(8));
+
+        //Increment start avg from 0 to 100
+        start_average++;
+
+        //Increment factor from .59 to .99
+        lambda += .004;
+
+        ensemble[run_lri(start, start_average, lambda)]++;
+    }
+
+    console.log("lri:", ensemble, weightedAvg(ensemble));
+}
+
+
+function run_lri(start_choice, start_average, lambda) {
+    const NUM_STATES = 8;
+
+    let probabilities = [.125, .125, .125, .125, .125, .125, .125, .125];
+    let average = start_average;
+    let choice = { cur: start_choice, n: 0 };
+    let reward = false;
+    let str = 0;
+
+    for (var i = 1; i <= ITERATIONS; i++) {
+        choice = automata(choice, reward);
+        str = strength(choice.cur);
+        reward = str > average;
+
+        average = ((i * average) + str) / (i + 1);
+
+        if (reward) {
             let total = 0;
-            for (var x = 0; x < nodes.length; x++) {
-                if (x === node_number) continue;
+            for (var x = 0; x < probabilities.length; x++) {
+                if (x === choice.cur) continue;
 
-                nodes[x] = nodes[x] * lambda;
-                total += nodes[x];
+                probabilities[x] = probabilities[x] * lambda;
+                total += probabilities[x];
             }
 
-            nodes[node_number] = 1 - total;
-        }
-        else {
-            node_number = (node_number + 1) % 8;
+            probabilities[choice.cur] = 1 - total;
         }
     }
 
-    return getMaxIndex(nodes);
-}
+    return choice.cur;
 
-function isMax(action, sigma) {
-    let val = [];
-    for (var i = 0; i < mapping.length; i++) {
-        val.push(strength(i));
-    }
+    //LRI
+    function automata(i, reward) {
+        if (reward) return i;
+        else i.cur = (i.cur + 1) % NUM_STATES;
 
-    let max_index = 0;
-
-    for (var i = 0; i < val.length; i++) {
-        if (val[max_index] < val[i]) {
-            max_index = i;
-        }
-    }
-
-    return action === max_index;
-
-    function strength(index) {
-        let gi = mapping[index];
-        let noise = rand.rnorm(0, sigma);
-        return (3 * gi) / 2 + noise;
+        return i;
     }
 }
 
-function getMaxIndex(nodes) {
-    let max_index = 0;
-    let all_same = true;
-
-    for (var i = 1; i < nodes.length; i++) {
-        if (nodes[i] !== nodes[0]) {
-            all_same = false;
-            break;
-        }
-    }
-
-    if (all_same) return 8;
-
-    for (var i = 0; i < nodes.length; i++) {
-        if (nodes[max_index] < nodes[i]) {
-            max_index = i;
-        }
-    }
-
-    return max_index;
+function strength(index) {
+    let gi = MAPPING[index];
+    let noise = rand.rnorm(0, SIGMA);
+    return (3 * gi) / 2 + noise;
 }
 
+function weightedAvg(ens) {
+    let total = 0;
+    for (var i = 0; i < ens.length; i++) {
+        total += MAPPING[i] * ens[i];
+    }
+
+    return total / TRIALS;
+}
 
 function getRandomMap() {
     let out_arr = [];
