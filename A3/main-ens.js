@@ -1,8 +1,10 @@
 let rand = require("randgen");
 
 const MAPPING = getRandomMap(); //[1, 2, 3, 4, 5, 6, 7, 8];
+const INDEX_EIGHT = MAPPING.indexOf(8);
 const SIGMA = 3;
 const TRIALS = 100;
+const ENS = 5000;
 const ITERATIONS = 15000;
 
 console.log("mapping", MAPPING);
@@ -31,13 +33,18 @@ function tsetlin_ens() {
         //Increment start avg from 0 to 100
         start_average++;
 
-        ensemble[run_tsetlin(start, start_average, memory)]++;
+        let res = run_tsetlin(start, start_average, memory);
+
+        for (var j = 0; j < ensemble.length; j++) {
+            ensemble[j] += res[j];
+        }
     }
 
-    console.log("tsetlin:", ensemble, (avg = weightedAvg(ensemble)), avg / 8, (new Date().getTime()) - t0);
+    console.log("tsetlin:", ensemble, (avg = weightedAvg(ensemble)), ensemble[INDEX_EIGHT] / (TRIALS * ENS), avg / 8, (new Date().getTime()) - t0);
 }
 
 function run_tsetlin(start_choice, start_average, memory) {
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0]
     const N = memory;
     const NUM_STATES = 8;
 
@@ -52,9 +59,11 @@ function run_tsetlin(start_choice, start_average, memory) {
         reward = str > average;
 
         average = ((i * average) + str) / (i + 1);
+
+        if (ITERATIONS - i < ENS) ensemble[choice.cur]++;
     }
 
-    return choice.cur;
+    return ensemble;
 
     //TSETLIN
     function automata(i, reward) {
@@ -86,13 +95,18 @@ function krinsky_ens() {
         //Increment start avg from 0 to 100
         start_average++;
 
-        ensemble[run_krinsky(start, start_average, memory)]++;
+        let res = run_krinsky(start, start_average, memory);
+
+        for (var j = 0; j < ensemble.length; j++) {
+            ensemble[j] += res[j];
+        }
     }
 
-    console.log("krinsky:", ensemble, (avg = weightedAvg(ensemble)), avg / 8, (new Date().getTime()) - t0);
+    console.log("krinsky:", ensemble, (avg = weightedAvg(ensemble)), ensemble[INDEX_EIGHT] / (TRIALS * ENS), avg / 8, (new Date().getTime()) - t0);
 }
 
 function run_krinsky(start_choice, start_average, memory) {
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0]
     const N = memory;
     const NUM_STATES = 8;
 
@@ -107,9 +121,11 @@ function run_krinsky(start_choice, start_average, memory) {
         reward = str > average;
 
         average = ((i * average) + str) / (i + 1);
+
+        if (ITERATIONS - i < ENS) ensemble[choice.cur]++;
     }
 
-    return choice.cur;
+    return ensemble;
 
     //Krinsky
     function automata(i, reward) {
@@ -142,12 +158,17 @@ function krylov_ens() {
         //Increment start avg from 0 to 100
         start_average++;
 
-        ensemble[run_krylov(start, start_average, memory)]++;
+        let res = run_krylov(start, start_average, memory);
+
+        for (var j = 0; j < ensemble.length; j++) {
+            ensemble[j] += res[j];
+        }
     }
-    console.log("krylov:", ensemble, (avg = weightedAvg(ensemble)), avg / 8, (new Date().getTime()) - t0);
+    console.log("krylov:", ensemble, (avg = weightedAvg(ensemble)), ensemble[INDEX_EIGHT] / (TRIALS * ENS), avg / 8, (new Date().getTime()) - t0);
 }
 
 function run_krylov(start_choice, start_average, memory) {
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0]
     const N = memory;
     const NUM_STATES = 8;
 
@@ -162,9 +183,11 @@ function run_krylov(start_choice, start_average, memory) {
         reward = str > average;
 
         average = ((i * average) + str) / (i + 1);
+
+        if (ITERATIONS - i < ENS) ensemble[choice.cur]++;
     }
 
-    return choice.cur;
+    return ensemble;
 
     //KRYLOV
     function automata(i, reward) {
@@ -200,14 +223,19 @@ function lri_ens() {
         //Increment factor from .89 to .99
         lambda += .001;
 
-        ensemble[run_lri(start, start_average, lambda)]++;
+        let res = run_lri(start, start_average, lambda);
+
+        for (var j = 0; j < ensemble.length; j++) {
+            ensemble[j] += res[j];
+        }
     }
 
-    console.log("lri:", ensemble, (avg = weightedAvg(ensemble)), avg / 8, (new Date().getTime()) - t0);
+    console.log("lri:", ensemble, (avg = weightedAvg(ensemble)), ensemble[INDEX_EIGHT] / (TRIALS * ENS), avg / 8, (new Date().getTime()) - t0);
 }
 
 
 function run_lri(start_choice, start_average, lambda) {
+    let ensemble = [0, 0, 0, 0, 0, 0, 0, 0]
     const NUM_STATES = 8;
 
     let probabilities = [.125, .125, .125, .125, .125, .125, .125, .125];
@@ -235,9 +263,11 @@ function run_lri(start_choice, start_average, lambda) {
 
             probabilities[choice.cur] = 1 - total;
         }
+
+        if (ITERATIONS - i < ENS) ensemble[choice.cur]++;
     }
 
-    return choice.cur;
+    return ensemble;
 
     //LRI
     function automata(i, reward) {
@@ -260,7 +290,7 @@ function weightedAvg(ens) {
         total += MAPPING[i] * ens[i];
     }
 
-    return total / TRIALS;
+    return total / (TRIALS * ENS);
 }
 
 function getRandomMap() {
