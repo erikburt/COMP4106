@@ -1,9 +1,14 @@
 const BOARD_SIZE = 6;
 const SQUARE_SIZE = 60;
-let move_counter = 0, moves, src;
+let move_counter = 0,
+  moves,
+  src;
 
 function preload() {
-  moves = loadJSON('file:///home/erik/Documents/School/COMP4106/A2/js/out/out3v2.json');
+  moves = loadJSON(
+    "file:///home/erik/Documents/School/COMP4106/A2/js/out/out2v1.json"
+  );
+  console.log("test");
   console.log(moves.length);
 }
 
@@ -39,7 +44,6 @@ function keyPressed() {
 
   draw();
 }
-
 
 function setColor(tile) {
   switch (tile) {

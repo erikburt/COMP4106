@@ -31,17 +31,27 @@ const BASE_BFS: [[u8;7]; 7] = [
     [9,9,0,0,1,9,9]
 ];
 
+const BASE_ONE: [[u8;7]; 7] = [
+    [9,9,0,0,0,9,9],
+    [9,0,0,0,0,0,9],
+    [0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0],
+    [9,0,0,0,1,1,9],
+    [9,9,0,0,0,9,9]
+];
+
 fn main() {
-    // run_dfs();
-    run_bfs();
-    // run_astar();
+    //run_dfs();
+    //run_bfs();
+    run_astar();
 }
 
 fn run_dfs() {
     println!("--DFS--");
 
     let mut now = Instant::now();
-    let start_id = Board::array_to_id(&BASE);
+    let start_id = Board::array_to_id(&BASE_ONE);
     let mut path = dfs(start_id);
 
     //print_path(&path);
@@ -53,7 +63,7 @@ fn run_bfs() {
     println!("--BFS--");
 
     let mut now = Instant::now();
-    let start_id = Board::array_to_id(&BASE_BFS);
+    let start_id = Board::array_to_id(&BASE_ONE);
     let mut path = bfs(start_id);
 
     //print_path(&path);
@@ -64,7 +74,7 @@ fn run_astar() {
     println!("--A Star--");
 
     let mut now = Instant::now();
-    let start_id = Board::array_to_id(&BASE);
+    let start_id = Board::array_to_id(&BASE_ONE);
     let mut path = astar(start_id);
     
     print_path(&path);
