@@ -1,9 +1,9 @@
-// mod board;
-// use board::Board;
+mod board;
+use board::Board;
 
 use std::time::Instant;
-use std::f64;
-use std::vec::Vec;
+//use std::f64;
+//use std::vec::Vec;
 
 // use std::collections::HashSet;
 // use std::collections::VecDeque;
@@ -59,106 +59,12 @@ fn main() {
     let now = Instant::now();
     //let start_id = Board::array_to_id(&BASE);
 
-    const BOARD_SIZE: usize = 16;
-    let _board = START_16;
+    const BOARD_SIZE: usize = 4;
+    let _board = START_4;
 
-    let mut nodes: Vec<Vec<Node>> = Vec::with_capacity(BOARD_SIZE);
-
-    for y in 0..BOARD_SIZE {
-        let mut new: Vec<Node> = Vec::with_capacity(BOARD_SIZE);
-        for x in 0..BOARD_SIZE {
-            let new_node: Node = Node::new(BOARD_SIZE, x as u8, y as u8, _board[y][x]);
-            new.push(new_node);
-        }
-        nodes.push(new);
-    }
+    let brd = Board::new(BOARD_SIZE, START_4);
+    brd.print_board();
+    brd.update_possibles();
 
     println!("\n\n{}", now.elapsed().as_secs());
-}
-
-pub struct Node {
-    pub possibles: Vec<u8>,
-    pub value: u8,
-    pub x: u8,
-    pub y: u8,
-    pub row: Vec<(u8, u8)>,
-    pub col: Vec<(u8, u8)>,
-    pub sqr: Vec<(u8, u8)>,
-    pub solved: bool,
-}
-
-impl Node {
-    pub fn new(size: usize, x: u8, y: u8, value: u8) -> Node {
-        let mut possibles: Vec<u8> = Vec::with_capacity(size as usize);
-        let mut row: Vec<(u8, u8)> = Vec::with_capacity(size as usize);
-        let mut col: Vec<(u8, u8)> = Vec::with_capacity(size as usize);
-        let mut sqr: Vec<(u8, u8)> = Vec::with_capacity(size as usize);
-        let mut solved: bool = false;
-
-        if value != 0 {
-            possibles.push(value);
-            solved = true;
-        }
-
-        for i in 0..size {
-            if value == 0 {
-                possibles.push((i + 1) as u8);
-            } //Pushed possible values
-
-            if i as u8 != x {
-                row.push((x, i as u8));
-            } //Pushes everything in the row
-            if i as u8 != y {
-                col.push((i as u8, y));
-            } //Pushes everyting in the col
-        }
-
-        //Square
-        let sub_size = (size as f64).sqrt() as u8;
-        let sub_x = x / sub_size;
-        let sub_y = y / sub_size;
-
-        for x_i in 0..sub_size {
-            for y_i in 0..sub_size {
-                if x != x_i && y != y_i {
-                    sqr.push((
-                        (sub_size * sub_x + x_i) as u8,
-                        (sub_size * sub_y + y_i) as u8,
-                    ));
-                }
-            }
-        }
-
-        return Node {
-            possibles: possibles,
-            value: value,
-            x: x,
-            y: y,
-            row: row,
-            col: col,
-            sqr: sqr,
-            solved: solved,
-        };
-    }
-
-    pub fn out(&self) {
-        //print!()
-    }
-}
-
-fn print_board(&nodes: Vec<Vec<Node>>) {
-    for row in nodes {
-        for node in row {
-            let mut val: u8 = 0;
-
-            match node.possibles.len() {
-                1 => val = node.value,
-                _ => val = 0,
-            }
-
-            print!("{num:>2} ", num = val);
-        }
-
-        println!();
-    }
 }
