@@ -62,7 +62,7 @@ fn main() {
     const BOARD_SIZE: usize = 4;
     let _board = START_4;
 
-    let brd = Board::new(BOARD_SIZE, START_4);
+    let mut brd = Board::new(BOARD_SIZE, START_4);
     brd.print_board();
     brd.update_possibles();
 

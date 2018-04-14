@@ -38,40 +38,29 @@ impl Board {
         }
     }
 
-    pub fn update_possibles(&self) {
-        for node in self.nodes.iter() {
-            print!("{}-", node.value);
+    pub fn update_possibles(&mut self) {
 
-            // for i in node.sqr.iter() {
-            //     print!("{} ", i);
-            // }
-
-            for i in 0..self.nodes.len() {
-                let node: &Node = self.get_node(i);
-
-                if node.solved {
-                    for i in 0..self.size {
-                        let node_u: &Node;
-                        let node_col_idx: usize;
-                        // let node_row: &Node;
-                        // let node_sqr: &Node;
-
-                        match node.col.get(i) {
-                            Some(n) => node_col_idx = *n,
-                            None => panic!("err in update_possibilities"),
-                        }
-
-                        match self.nodes.get_mut(node_col_idx) {
-                            Some(n) => node_u = n,
-                            None => panic!("FFS"),
-                        }
-
-                        // match self.nodes.get_mut(i) {
-                        //     Some(n) => Node::remove_possibility(n, node.value),
-                        //     None => println!("Err"),
-                        // }
+        for i in 0..self.nodes.len() {
+            let node: Node = self.get_node(i).clone();
+            if node.solved {
+                for i in node.col {
+                    if let Some(temp) = self.nodes.get_mut(i) {
+                        temp.remove_possibility(node.value);
                     }
                 }
+
+                for i in node.row {
+                    if let Some(temp) = self.nodes.get_mut(i) {
+                        temp.remove_possibility(node.value);
+                    }
+                }
+
+                for i in node.sqr {
+                    if let Some(temp) = self.nodes.get_mut(i) {
+                        temp.remove_possibility(node.value);
+                    }
+                }
+
             }
         }
     }
@@ -84,6 +73,7 @@ impl Board {
     }
 }
 
+#[derive(Clone)]
 pub struct Node {
     pub possibles: Vec<u8>,
     pub value: u8,
