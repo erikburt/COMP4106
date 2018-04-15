@@ -6,20 +6,22 @@ main();
 
 function main() {
     const use = Boards.hard.START_9;
-    const BOARD_SIZE = use.length;
 
     console.log(`Zeroes: ${count_zeroes(use)}`);
-    let brd = new Board.Board(BOARD_SIZE, use);
-    solve(brd);
+
+    let brd = new Board.Board(use);
+    brd = solve(brd);
+
     brd.print_board();
 }
 
 function solve(brd) {
-    if (brd.is_solved()) return;  //Checks for trivially solvable case
+    if (brd.is_solved()) return brd;  //Checks for trivially solvable case
 
     let boards = [];
 
     boards.push(brd.get_board()); // DFS gets board where branching will occur
+    return brd;
 
     //board.apply_heuristic();
     //heuristic is number of nodes solved after / probability

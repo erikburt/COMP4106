@@ -2,17 +2,44 @@ let NodeImp = require("./node.js");
 let { Node } = NodeImp;
 
 class Board {
-    constructor(size, board) {
+    /*
+        Constructor
+    */
+    constructor(board) {
         this.nodes = [];
-        this.size = size;
+        this.size = board.length;
 
-        for (var i = 0; i < size * size; i++) {
-            let new_node = new Node(size, board, i);
+        for (var i = 0; i < this.size * this.size; i++) {
+            let new_node = new Node(this.size, board, i);
             this.nodes.push(new_node);
         }
 
-        this.update_all_possibles();
+        //Updates all nodes to include changes for initial values
+        this.nodes.forEach(node => {
+            if (node.solved) {
+                const value = node.value;
 
+                node.row.forEach(index => {
+                    if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(this.nodes[index])) {
+                        this.propagate_update(index);
+                    }
+                });
+
+                node.col.forEach(index => {
+                    if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(this.nodes[index])) {
+                        this.propagate_update(index);
+                    }
+                });
+
+                node.sqr.forEach(index => {
+                    if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(this.nodes[index])) {
+                        this.propagate_update(index);
+                    }
+                });
+            }
+        });
+
+        //Looks for sole candidates
         while (true) {
             let count = this.examine_possibles(false);
             console.log(`Updated ${count}`);
@@ -20,58 +47,42 @@ class Board {
         };
     }
 
-    update_all_possibles() {
-        this.nodes.forEach(node => {
+    /*
+        Propagate Update
 
-            if (node.solved) {
-                const value = node.value;
-
-                node.row.forEach(index => {
-                    if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(node)) {
-                        this.propagate_update(index);
-                    }
-                });
-
-                node.col.forEach(index => {
-                    if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(node)) {
-                        this.propagate_update(index);
-                    }
-                });
-
-                node.sqr.forEach(index => {
-                    if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(node)) {
-                        this.propagate_update(index);
-                    }
-                });
-            }
-        });
-    }
-
+        When a node is updated (to solved) then this will propagate the new constraints
+     */
     propagate_update(index) {
+        let nodes = this.nodes;
         const node = this.nodes[index];
         const value = node.value;
 
         if (!node.solved) return;
 
         node.row.forEach(index => {
-            if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(node)) {
+            if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(this.nodes[index])) {
                 this.propagate_update(index);
             }
         });
-
         node.col.forEach(index => {
-            if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(node)) {
+            if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(this.nodes[index])) {
+                this.propagate_update(index);
+            }
+        });
+        node.sqr.forEach(index => {
+            if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(this.nodes[index])) {
                 this.propagate_update(index);
             }
         });
 
-        node.sqr.forEach(index => {
-            if (this.nodes[index].remove_possibility(value) && this.is_valid_solve(node)) {
-                this.propagate_update(index);
-            }
-        });
+
     }
 
+    /*
+        Is Valid Solve
+
+        Checks if a node is actually being solved properly
+     */
     is_valid_solve(node) {
         const value = node.possibles[0];
 
@@ -84,27 +95,39 @@ class Board {
         return true;
     }
 
-    //Looks if a cell is the only candidate for a number in one of its subdomains
+    /*
+        Examine Possibles
+
+        Looks if a cell is the only candidate for a number in one of its subdomains
+
+        if parameter count is true, no updates will occur will only count number of changes (for heuristic)
+    */
     examine_possibles(count) {
         let updates = 0;
         //Loop through diagonally (hitting all rows/columns in n iterations)
         for (var i = 0; i < this.size; i++) {
             let node = this.nodes[i * (this.size + 1)];
-            updates += this.calculate_frequencies(node, 0, count) + this.calculate_frequencies(node, 1, count);
+            updates += this.calculate_frequencies(node, 0, count); //Row
+            updates += this.calculate_frequencies(node, 1, count); //Col
         }
 
         let inc = Math.sqrt(this.size);
 
+        //Loop through top left of all sub_squares
         for (var y = 0; y < this.size; y += inc) {
             for (var x = 0; x < this.size; x += inc) {
-                const node = this.nodes[x_y_to_index(x, y, this.size)];
-                updates += this.calculate_frequencies(node, 2, count);
+                updates += this.calculate_frequencies(this.nodes[x_y_to_index(x, y, this.size)], 2, count); //Sqr
             }
         }
 
         return updates;
     }
 
+    /*
+        ECalculate Frequencies
+
+        Examine possibles helper (does the sole candidate on a per node basis);
+    */
     calculate_frequencies(node, choice, count) {
         let updates = 0;
         let freq = [];
@@ -157,7 +180,12 @@ class Board {
         }
     }
 
-    //Very redundant
+    /*
+        Is Valid
+
+        Checks if the board is valid
+        TODO: Remove very redundant checks
+    */
     is_valid() {
         let valid = true;
         this.nodes.forEach(node => {
@@ -201,14 +229,25 @@ class Board {
         return valid;
     }
 
+    /*
+        Is Solved
+
+        Checks if the board is solved
+    */
     is_solved() {
         for (var i = 0; i < this.nodes.length; i++) {
             if (!this.nodes[i].solved) return false;
         }
 
+        return this.is_valid();
         return true;
     }
 
+    /*
+        List possibilities
+
+        Debugging function to list possible answers per node
+    */
     list_possibles() {
         this.nodes.forEach(node => {
             if (node.solved) return;
@@ -216,6 +255,9 @@ class Board {
         });
     }
 
+    /*
+        Print Board
+    */
     print_board() {
         let str = "";
         let zeroes = 0;
@@ -233,6 +275,11 @@ class Board {
         console.log(`${str}\nZeroes:${zeroes}`);
     }
 
+    /*
+        Get Board
+
+        Returns the board in a 2d array (like board templates);
+    */
     get_board() {
         let board = [];
         let row = [];
