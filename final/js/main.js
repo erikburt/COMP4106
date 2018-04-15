@@ -5,7 +5,7 @@ let Boards = require("./board-templates.js");
 main();
 
 function main() {
-    const use = Boards.hard.START_25_HARD;
+    const use = Boards.hard.START_9;
     const BOARD_SIZE = use.length;
 
     console.log(`Zeroes: ${count_zeroes(use)}`);

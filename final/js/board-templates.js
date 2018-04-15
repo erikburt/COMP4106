@@ -133,9 +133,9 @@ const easy = {
 }
 
 const hard = {
-    START_9_HARD,
-    START_16_HARD,
-    START_25_HARD
+    START_9: START_9_HARD,
+    START_16: START_16_HARD,
+    START_25: START_25_HARD
 }
 
 module.exports = {
