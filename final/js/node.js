@@ -1,14 +1,12 @@
 class Node {
-    constructor(size, board, index) {
+    constructor(size, x, y, value, index) {
         this.possibles = [];
         this.row = [];
         this.col = [];
         this.sqr = [];
-        let coord = index_to_x_y(index, size);
-        let { x, y } = coord;
         this.x = x;
         this.y = y;
-        this.value = board[y][x];
+        this.value = value
         this.solved = false;
         this.index = index;
 
@@ -52,7 +50,10 @@ class Node {
             //console.log(`After(${this.index}): ${this.possibles}`);
         }
 
-        if (this.possibles.length === 1) return true;
+        if (this.possibles.length === 1) {
+            this.solve(this.possibles[0]);
+            return true;
+        }
         return false;
     }
 

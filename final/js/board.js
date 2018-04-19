@@ -6,11 +6,13 @@ class Board {
         Constructor
     */
     constructor(board) {
+        //console.log(board);
         this.nodes = [];
         this.size = board.length;
 
         for (var i = 0; i < this.size * this.size; i++) {
-            let new_node = new Node(this.size, board, i);
+            let { x, y } = index_to_x_y(i, this.size);
+            let new_node = new Node(this.size, x, y, board[y][x], i);
             this.nodes.push(new_node);
         }
 
@@ -42,7 +44,7 @@ class Board {
         //Looks for sole candidates
         while (true) {
             let count = this.examine_possibles(false);
-            console.log(`Updated ${count}`);
+            //console.log(`Updated ${count}`);
             if (count === 0) break;
         };
     }
@@ -184,54 +186,85 @@ class Board {
         Is Valid
 
         Checks if the board is valid
-        TODO: Remove very redundant checks
     */
-    is_valid() {
-        let valid = true;
-        this.nodes.forEach(node => {
-            if (!valid) return valid;
+    is_valid(debug) {
+        //Loop through diagonally (hitting all rows/columns in n iterations)
+        for (var i = 0; i < this.size; i++) {
+            let node = this.nodes[i * (this.size + 1)];
+            let row_seen = {};
+            let col_seen = {};
 
-            const value = node.value;
-            if (value !== 0) {
-
-                node.row.forEach(index => {
-                    if (node.value === this.nodes[index].value) {
-                        console.log(`Value: ${node.value} - Node: ${node.index}=(${index_to_x_y(node.index, this.size).x},${index_to_x_y(node.index, this.size).y})`)
-                        console.log(`Value: ${this.nodes[index].value} - Node: ${index}=(${index_to_x_y(index, this.size).x},${index_to_x_y(index, this.size).y})`)
-                        console.log();
-                        valid = false;
-                        return valid;
-                    }
-                });
-
-                node.col.forEach(index => {
-                    if (node.value === this.nodes[index].value) {
-                        console.log(`Value: ${node.value} - Node: ${node.index}=(${index_to_x_y(node.index, this.size).x},${index_to_x_y(node.index, this.size).y})`)
-                        console.log(`Value: ${this.nodes[index].value} - Node: ${index}=(${index_to_x_y(index, this.size).x},${index_to_x_y(index, this.size).y})`)
-                        console.log();
-                        valid = false;
-                        return valid;
-                    }
-                });
-
-                node.sqr.forEach(index => {
-                    if (node.value === this.nodes[index].value) {
-                        console.log(`Value: ${node.value} - Node: ${node.index}=(${index_to_x_y(node.index, this.size).x},${index_to_x_y(node.index, this.size).y})`)
-                        console.log(`Value: ${this.nodes[index].value} - Node: ${index}=(${index_to_x_y(index, this.size).x},${index_to_x_y(index, this.size).y})`)
-                        console.log();
-                        valid = false;
-                        return valid;
-                    }
-                });
+            if (node.solved) {
+                row_seen[node.value] = { i: node.index };
+                col_seen[node.value] = { i: node.index };
             }
-        });
 
-        return valid;
+            for (var i = 0; i < node.row.length; i++) {
+                const node_row = this.nodes[node.row[i]];
+                const node_col = this.nodes[node.col[i]];
+
+                if (node_row.solved) {
+                    if (row_seen[node_row.value]) {
+                        if (debug) {
+                            let n = this.nodes[row_seen[node_row.value].i];
+                            console.log(`Row - Value: ${n.value} - Node: ${n.index}=(${index_to_x_y(n.index, this.size).x},${index_to_x_y(n.index, this.size).y})`)
+                            console.log(`Row - Value: ${node_row.value} - Node: ${node_row.index}=(${index_to_x_y(node_row.index, this.size).x},${index_to_x_y(node_row.index, this.size).y})`)
+                        }
+                        return false;
+                    }
+                    row_seen[node_row.value] = { i: node_row.index };
+                }
+
+                if (node_col.solved) {
+                    if (col_seen[node_col.value]) {
+                        if (debug) {
+                            let n = this.nodes[col_seen[node_col.value].i];
+                            console.log(`Col - Value: ${n.value} - Node: ${n.index}=(${index_to_x_y(n.index, this.size).x},${index_to_x_y(n.index, this.size).y})`)
+                            console.log(`Col - Value: ${node_col.value} - Node: ${node_col.index}=(${index_to_x_y(node_col.index, this.size).x},${index_to_x_y(node_col.index, this.size).y})`)
+                        }
+                        return false;
+                    }
+
+                    col_seen[node_col.value] = { i: node_col.index };
+                }
+            }
+        }
+
+        let inc = Math.sqrt(this.size);
+
+        //Loop through top left of all sub_squares
+        for (var y = 0; y < this.size; y += inc) {
+            for (var x = 0; x < this.size; x += inc) {
+                let sqr_seen = {};
+                let node = this.nodes[x_y_to_index(x, y, this.size)];
+
+                if (node.solved) sqr_seen[node.value] = { i: node.index }
+
+                for (var i = 0; i < node.row.length; i++) {
+                    const node_sqr = this.nodes[node.sqr[i]];
+
+                    if (node_sqr.solved) {
+                        if (sqr_seen[node_sqr.value]) {
+                            if (debug) {
+                                let n = this.nodes[sqr_seen[node_sqr.value].i];
+                                console.log(`Sqr - Value: ${n.value} - Node: ${n.index}=(${index_to_x_y(n.index, this.size).x},${index_to_x_y(n.index, this.size).y})`)
+                                console.log(`Sqr - Value: ${node_sqr.value} - Node: ${node_sqr.index}=(${index_to_x_y(node_sqr.index, this.size).x},${index_to_x_y(node_sqr.index, this.size).y})`)
+                            }
+
+                            return false;
+                        }
+                        sqr_seen[node_sqr.value] = { i: node_sqr.index };
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 
     /*
         Is Solved
-
+     
         Checks if the board is solved
     */
     is_solved() {
@@ -239,13 +272,13 @@ class Board {
             if (!this.nodes[i].solved) return false;
         }
 
-        return this.is_valid();
+        //return this.is_valid();
         return true;
     }
 
     /*
         List possibilities
-
+     
         Debugging function to list possible answers per node
     */
     list_possibles() {
@@ -277,7 +310,7 @@ class Board {
 
     /*
         Get Board
-
+     
         Returns the board in a 2d array (like board templates);
     */
     get_board() {
@@ -299,6 +332,54 @@ class Board {
         if (index < 0 || index >= this.nodes.length) return;
 
         return this.nodes[index];
+    }
+
+    get_neighbours() {
+        let neighbours = [];
+        let min = { size: Number.MAX_SAFE_INTEGER, index: 0 };
+
+        for (var n = 0; n < this.nodes.length; n++) {
+            let node = this.nodes[n];
+            if (node.solved) continue;
+            if (node.possibles.length < min.size) min = { size: node.possibles.length, index: node.index };
+        }
+
+        let node = this.nodes[min.index];
+
+        //console.log(min, node.possibles);
+
+        for (var i = 0; i < min.size; i++) {
+            let board = this.get_board();
+            if (board[node.y][node.x].solved) console.log("Broken");
+            board[node.y][node.x] = node.possibles[i];
+            neighbours.push(board);
+        }
+
+        return neighbours;
+    }
+
+    get_all_min_neighbours() {
+        let neighbours = [];
+        let min = this.size;
+
+        for (var n = 0; n < this.nodes.length; n++) {
+            let node = this.nodes[n];
+            if (node.solved) continue;
+            if (node.possibles.length < min) min = node.possibles.length;
+        }
+
+        for (var n = 0; n < this.nodes.length; n++) {
+            let node = this.nodes[n];
+            if (!node.solved && node.possibles.length === min)
+                for (var i = 0; i < min; i++) {
+                    let board = this.get_board();
+                    if (board[node.y][node.x].solved) console.log("Broken");
+                    board[node.y][node.x] = node.possibles[i];
+                    neighbours.push(board);
+                }
+        }
+
+        return neighbours;
     }
 }
 
