@@ -279,13 +279,30 @@ class Board {
     /*
         List possibilities
      
-        Debugging function to list possible answers per node
+        Debugging function to list possible answers per nodea
     */
     list_possibles() {
+        let factor = 1;
+
         this.nodes.forEach(node => {
             if (node.solved) return;
-            console.log(`${node.index}: ${node.possibles}`);
+            factor = factor * node.possibles.length;
+            console.log(`${node.index} (${node.possibles.length}): ${node.possibles}`);
         });
+
+        console.log(factor);
+    }
+
+    count(entry) {
+        let solved = 0
+        let possibles = 0;
+
+        this.nodes.forEach(node => {
+            if (node.solved && node.value === entry) solved++;
+            else if (node.possibles.indexOf(entry) !== -1) possibles++;
+        });
+
+        return { solved, possibles };
     }
 
     /*
@@ -352,10 +369,12 @@ class Board {
             let board = this.get_board();
             if (board[node.y][node.x].solved) console.log("Broken");
             board[node.y][node.x] = node.possibles[i];
-            neighbours.push(board);
+            neighbours.push({ board, added: node.possibles[i] });
         }
 
-        return neighbours;
+        //console.log("adding neighbours", neighbours.length);
+
+        return { neighbours, total: min.size };
     }
 
     get_all_min_neighbours() {

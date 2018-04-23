@@ -1,797 +1,1022 @@
-312
-196
-210
-230
-219
-214
-216
-225
-191
-215
-148
-207
-216
-222
-212
-193
-224
-214
-213
-204
-202
-196
-210
-199
-190
-201
-204
-219
-212
-205
-213
-192
-224
-225
-210
-201
-221
-187
-193
-222
-184
-208
-187
-210
-200
-191
-199
-185
-213
-183
-222
-230
-214
-171
-230
-202
-210
-218
-194
-212
-229
-187
-198
-199
-206
-204
-180
-222
-205
-183
-215
-188
-207
-190
-208
-233
-188
-218
-225
-196
-203
-198
-215
-247
-206
-237
-193
-186
-226
-203
-165
-206
-204
-211
-203
-196
-208
-189
-187
-236
-185
-221
-184
-189
-202
-222
-235
-223
-207
-179
-179
-222
-189
-206
-204
-225
-194
-209
-153
-189
-184
-213
-183
-182
-203
-203
-185
-194
-171
-206
-204
-196
-208
-195
-220
-220
-204
-152
-201
-205
-210
-189
-195
-197
-217
-212
-207
-199
-206
-145
-174
-205
-171
-160
-221
-191
-189
-221
-191
-195
-171
-216
-221
-194
-179
-150
-163
-172
-149
-201
-203
-140
-203
-146
-186
-225
-189
-217
-208
-172
-168
-177
-210
-193
-206
-202
-180
-214
-178
-183
-185
-223
-199
-207
-194
-193
-220
-194
-207
-196
-196
-163
-218
-188
-199
-215
-204
-220
-220
-207
-207
-206
-156
-201
-223
-197
-197
-168
-202
-187
-208
-172
-221
-219
-212
-212
-213
-150
-157
-216
-165
-204
-199
-212
-200
-247
-211
-176
-201
-187
-200
-214
-146
-207
-198
-134
-203
-218
-191
-136
-203
-208
-193
-206
-219
-211
-199
-202
-196
-149
-144
-158
-165
-193
-195
-199
-212
-221
-200
-206
-205
-222
-220
-219
-149
-215
-196
-204
-148
-209
-218
-206
-209
-200
-182
-192
-149
-221
-175
-188
-229
-193
-209
-154
-215
-202
-199
-230
-200
-155
-213
-194
-201
-199
-228
-243
-176
-187
-220
-209
-194
-188
-194
-157
-158
-166
-123
-159
-147
-148
-191
-210
-211
-232
-169
-230
-232
-214
-205
-207
-206
-188
-215
-218
-202
-210
-209
-223
-233
-215
-202
-224
-167
-221
-209
-201
-217
-204
-233
-217
-205
-208
-196
-214
-211
-203
-184
-193
-203
-203
-190
-198
-211
-209
-215
-197
-206
-211
-217
-207
-201
-179
-202
-202
-199
-202
-210
-222
-216
-228
-201
-231
-235
-199
-240
-231
-217
-220
-227
-213
-204
-219
-204
-230
-208
-245
-207
-196
-223
-228
-214
-217
-218
-217
-212
-202
-184
-216
-197
-225
-215
-205
-223
-217
-224
-161
-200
-210
-203
-217
-236
-214
-197
-191
-202
-215
-235
-233
-190
-225
-197
-187
-215
-187
-202
-237
-216
-220
-216
-172
-220
-209
-192
-234
-230
-200
-224
-185
-207
-179
-210
-217
-202
-233
-232
-216
-225
-214
-228
-205
-226
-216
-141
-209
-201
-197
-175
-194
-197
-177
-193
-206
-214
-215
-216
-225
-179
-234
-217
-218
-213
-213
-187
-236
-235
-223
-218
-173
-208
-194
-210
-177
-210
-202
-212
-236
-211
-180
-195
-202
-213
-194
-192
-196
-208
-172
-157
-199
-190
-190
-213
-189
-173
-190
-199
-217
-229
-173
-210
-179
-238
-226
-203
-209
-203
-177
-188
-174
-199
-184
-216
-220
-183
-181
-210
-191
-200
-163
-143
-191
-184
-201
-204
-220
-209
-197
-223
-200
-211
-185
-215
-194
-197
-205
-188
-222
-233
-188
-201
-216
-184
-181
-172
-170
-218
-163
-179
-167
-165
-179
-209
-214
-239
-197
-233
-182
-165
-198
-205
-210
-209
-206
-200
-209
-179
-166
-233
-207
-191
-205
-226
-183
-186
-234
-182
-200
-184
-181
-185
-207
-190
-191
-176
-212
-157
-203
-157
-146
-147
-152
-187
-205
-190
-174
-173
-183
-211
-187
-208
-182
-205
-200
-225
-200
-184
-176
-201
-227
-154
-216
-199
-206
-166
-194
-180
-199
-210
-225
-199
-224
-178
-198
-160
-206
-216
-182
-163
-184
-190
-201
-193
-209
-229
-198
-194
-196
-192
-197
-188
-215
-187
-189
-191
-198
-170
-183
-198
-205
-178
-215
-168
-196
-217
-212
-196
-133
-175
-184
-218
-224
-240
-150
-196
-187
-211
-196
-222
-198
-175
-182
-196
-174
-186
-218
-224
-196
-208
-191
-191
-198
-213
-199
-198
-187
-190
-146
-207
-146
-158
-186
-158
-195
-220
-178
-187
-166
-213
-224
-234
-134
-188
-156
-187
-138
-202
-190
-177
-185
-216
-224
-203
-178
-219
-168
-211
-210
-216
-185
-182
-156
-174
-150
-215
-134
-167
-209
-194
-158
-200
-221
-132
-167
-212
-195
-192
-179
-227
-189
-202
-194
-183
-210
-211
-197
-202
-231
-202
-206
-157
-159
-240
-186
-176
-197
-188
-201
-213
-201
-183
-154
-216
-193
-197
-192
-211
-149
-214
-168
-189
-155
-195
-166
-156
-219
-207
-188
-225
+ 1 11 4 3 25 24 19 15 16 10 21 8 18 14 17 6 12 9 23 20 2 7 13 22 5
+ 5 21 19 17 24 8 22 12 9 3 16 6 2 20 23 18 7 25 14 13 10 11 4 1 15
+ 2 22 23 6 9 25 21 5 17 20 11 10 7 1 13 4 8 3 24 15 18 12 16 14 19
+ 20 7 14 8 16 4 18 2 11 13 5 19 15 24 12 10 21 17 22 1 9 6 25 23 3
+ 10 13 15 12 18 14 1 23 7 6 9 22 25 4 3 2 5 19 11 16 8 24 20 21 17
+ 12 16 11 10 6 5 13 18 1 15 7 23 9 17 21 25 19 24 4 3 22 14 8 20 2
+ 8 20 13 21 19 16 4 25 12 2 15 3 5 22 11 14 17 23 18 9 1 10 7 24 6
+ 4 14 24 18 7 9 3 22 21 19 25 1 8 2 20 5 13 15 10 6 16 17 23 11 12
+ 22 1 3 25 23 17 20 11 24 7 10 13 4 6 14 16 2 12 21 8 5 19 18 15 9
+ 17 2 9 15 5 10 8 6 14 23 24 16 12 18 19 1 11 20 7 22 3 25 21 13 4
+ 13 3 18 5 10 2 23 14 4 25 22 15 17 19 16 7 24 1 9 21 12 20 6 8 11
+ 14 23 1 24 12 19 16 8 6 17 2 7 20 25 10 3 4 13 15 11 21 9 5 18 22
+ 7 8 2 11 17 20 24 21 22 18 3 4 1 12 9 23 6 14 19 5 25 13 15 10 16
+ 21 25 16 9 22 15 11 7 10 1 8 5 23 13 6 12 20 18 17 2 19 4 24 3 14
+ 6 15 20 19 4 13 12 3 5 9 18 11 14 21 24 8 22 16 25 10 7 23 2 17 1
+ 16 18 12 2 21 7 10 19 3 14 1 24 22 9 4 11 15 6 20 23 13 8 17 5 25
+ 25 24 8 13 1 6 2 4 20 12 17 14 3 7 18 21 16 22 5 19 11 15 10 9 23
+ 23 10 22 7 15 21 25 9 18 5 6 20 16 11 8 17 1 2 13 14 4 3 19 12 24
+ 3 5 6 14 11 1 17 16 8 24 13 21 19 23 15 9 25 10 12 4 20 18 22 2 7
+ 9 19 17 4 20 22 15 13 23 11 12 25 10 5 2 24 18 8 3 7 6 1 14 16 21
+ 19 6 21 22 8 18 9 1 15 4 14 2 24 3 7 13 10 11 16 17 23 5 12 25 20
+ 15 4 5 20 13 3 7 24 19 8 23 17 11 10 25 22 14 21 1 12 17 2 9 6 18
+ 11 12 7 16 14 23 6 17 2 21 20 18 13 15 22 19 9 5 8 25 24 22 1 4 10
+ 18 9 25 1 2 11 14 10 13 22 4 12 21 16 5 20 23 7 6 24 15 16 3 19 8
+ 24 17 10 23 3 12 5 20 25 16 19 9 6 8 1 15 3 4 2 18 14 21 11 7 13
+
+ Visited 6918000 - Queue:12 - Zeroes:209
+Visited 6919000 - Queue:12 - Zeroes:199
+Visited 6920000 - Queue:11 - Zeroes:183
+Visited 6921000 - Queue:9 - Zeroes:163
+Visited 6922000 - Queue:16 - Zeroes:211
+Visited 6923000 - Queue:14 - Zeroes:196
+Visited 6924000 - Queue:17 - Zeroes:158
+Visited 6925000 - Queue:12 - Zeroes:228
+Visited 6926000 - Queue:12 - Zeroes:184
+Visited 6927000 - Queue:9 - Zeroes:203
+Visited 6928000 - Queue:20 - Zeroes:193
+Visited 6929000 - Queue:14 - Zeroes:193
+Visited 6930000 - Queue:13 - Zeroes:234
+Visited 6931000 - Queue:13 - Zeroes:210
+Visited 6932000 - Queue:16 - Zeroes:200
+Visited 6933000 - Queue:15 - Zeroes:197
+Visited 6934000 - Queue:12 - Zeroes:186
+Visited 6935000 - Queue:14 - Zeroes:176
+Visited 6936000 - Queue:12 - Zeroes:192
+Visited 6937000 - Queue:11 - Zeroes:207
+Visited 6938000 - Queue:11 - Zeroes:207
+Visited 6939000 - Queue:17 - Zeroes:192
+Visited 6940000 - Queue:15 - Zeroes:183
+Visited 6941000 - Queue:16 - Zeroes:182
+Visited 6942000 - Queue:12 - Zeroes:218
+Visited 6943000 - Queue:14 - Zeroes:179
+Visited 6944000 - Queue:12 - Zeroes:171
+Visited 6945000 - Queue:14 - Zeroes:200
+Visited 6946000 - Queue:13 - Zeroes:184
+Visited 6947000 - Queue:14 - Zeroes:215
+Visited 6948000 - Queue:14 - Zeroes:184
+Visited 6949000 - Queue:16 - Zeroes:186
+Visited 6950000 - Queue:10 - Zeroes:206
+Visited 6951000 - Queue:11 - Zeroes:229
+Visited 6952000 - Queue:13 - Zeroes:185
+Visited 6953000 - Queue:16 - Zeroes:170
+Visited 6954000 - Queue:12 - Zeroes:207
+Visited 6955000 - Queue:13 - Zeroes:190
+Visited 6956000 - Queue:12 - Zeroes:228
+Visited 6957000 - Queue:14 - Zeroes:190
+Visited 6958000 - Queue:15 - Zeroes:169
+Visited 6959000 - Queue:14 - Zeroes:196
+Visited 6960000 - Queue:16 - Zeroes:214
+Visited 6961000 - Queue:10 - Zeroes:243
+Visited 6962000 - Queue:15 - Zeroes:206
+Visited 6963000 - Queue:15 - Zeroes:202
+Visited 6964000 - Queue:12 - Zeroes:199
+Visited 6965000 - Queue:13 - Zeroes:193
+Visited 6966000 - Queue:11 - Zeroes:204
+Visited 6967000 - Queue:14 - Zeroes:208
+Visited 6968000 - Queue:11 - Zeroes:190
+Visited 6969000 - Queue:11 - Zeroes:196
+Visited 6970000 - Queue:16 - Zeroes:196
+Visited 6971000 - Queue:14 - Zeroes:220
+Visited 6972000 - Queue:18 - Zeroes:190
+Visited 6973000 - Queue:17 - Zeroes:220
+Visited 6974000 - Queue:14 - Zeroes:212
+Visited 6975000 - Queue:15 - Zeroes:214
+Visited 6976000 - Queue:17 - Zeroes:220
+Visited 6977000 - Queue:21 - Zeroes:188
+Visited 6978000 - Queue:13 - Zeroes:237
+Visited 6979000 - Queue:16 - Zeroes:206
+Visited 6980000 - Queue:16 - Zeroes:212
+Visited 6981000 - Queue:14 - Zeroes:215
+Visited 6982000 - Queue:16 - Zeroes:216
+Visited 6983000 - Queue:14 - Zeroes:194
+Visited 6984000 - Queue:16 - Zeroes:220
+Visited 6985000 - Queue:17 - Zeroes:215
+Visited 6986000 - Queue:15 - Zeroes:203
+Visited 6987000 - Queue:15 - Zeroes:243
+Visited 6988000 - Queue:15 - Zeroes:213
+Visited 6989000 - Queue:15 - Zeroes:230
+Visited 6990000 - Queue:14 - Zeroes:204
+Visited 6991000 - Queue:17 - Zeroes:202
+Visited 6992000 - Queue:15 - Zeroes:229
+Visited 6993000 - Queue:20 - Zeroes:208
+Visited 6994000 - Queue:14 - Zeroes:202
+Visited 6995000 - Queue:17 - Zeroes:201
+Visited 6996000 - Queue:15 - Zeroes:189
+Visited 6997000 - Queue:15 - Zeroes:217
+Visited 6998000 - Queue:17 - Zeroes:200
+Visited 6999000 - Queue:19 - Zeroes:192
+Visited 7000000 - Queue:17 - Zeroes:207
+Visited 7001000 - Queue:18 - Zeroes:196
+Visited 7002000 - Queue:14 - Zeroes:237
+Visited 7003000 - Queue:15 - Zeroes:214
+Visited 7004000 - Queue:16 - Zeroes:225
+Visited 7005000 - Queue:14 - Zeroes:195
+Visited 7006000 - Queue:17 - Zeroes:239
+Visited 7007000 - Queue:17 - Zeroes:216
+Visited 7008000 - Queue:16 - Zeroes:204
+Visited 7009000 - Queue:15 - Zeroes:205
+Visited 7010000 - Queue:15 - Zeroes:203
+Visited 7011000 - Queue:17 - Zeroes:218
+Visited 7012000 - Queue:12 - Zeroes:211
+Visited 7013000 - Queue:14 - Zeroes:199
+Visited 7014000 - Queue:13 - Zeroes:186
+Visited 7015000 - Queue:11 - Zeroes:241
+Visited 7016000 - Queue:16 - Zeroes:209
+Visited 7017000 - Queue:16 - Zeroes:206
+Visited 7018000 - Queue:17 - Zeroes:215
+Visited 7019000 - Queue:14 - Zeroes:211
+Visited 7020000 - Queue:18 - Zeroes:220
+Visited 7021000 - Queue:11 - Zeroes:226
+Visited 7022000 - Queue:19 - Zeroes:208
+Visited 7023000 - Queue:16 - Zeroes:200
+Visited 7024000 - Queue:12 - Zeroes:216
+Visited 7025000 - Queue:8 - Zeroes:232
+Visited 7026000 - Queue:13 - Zeroes:224
+Visited 7027000 - Queue:10 - Zeroes:213
+Visited 7028000 - Queue:16 - Zeroes:215
+Visited 7029000 - Queue:21 - Zeroes:214
+Visited 7030000 - Queue:19 - Zeroes:198
+Visited 7031000 - Queue:14 - Zeroes:218
+Visited 7032000 - Queue:14 - Zeroes:229
+Visited 7033000 - Queue:14 - Zeroes:234
+Visited 7034000 - Queue:15 - Zeroes:225
+Visited 7035000 - Queue:17 - Zeroes:187
+Visited 7036000 - Queue:15 - Zeroes:223
+Visited 7037000 - Queue:14 - Zeroes:220
+Visited 7038000 - Queue:14 - Zeroes:222
+Visited 7039000 - Queue:9 - Zeroes:224
+Visited 7040000 - Queue:15 - Zeroes:196
+Visited 7041000 - Queue:12 - Zeroes:188
+Visited 7042000 - Queue:15 - Zeroes:206
+Visited 7043000 - Queue:14 - Zeroes:176
+Visited 7044000 - Queue:13 - Zeroes:225
+Visited 7045000 - Queue:10 - Zeroes:191
+Visited 7046000 - Queue:11 - Zeroes:161
+Visited 7047000 - Queue:13 - Zeroes:186
+Visited 7048000 - Queue:15 - Zeroes:163
+Visited 7049000 - Queue:14 - Zeroes:151
+Visited 7050000 - Queue:16 - Zeroes:235
+Visited 7051000 - Queue:18 - Zeroes:207
+Visited 7052000 - Queue:18 - Zeroes:146
+Visited 7053000 - Queue:16 - Zeroes:201
+Visited 7054000 - Queue:17 - Zeroes:200
+Visited 7055000 - Queue:15 - Zeroes:190
+Visited 7056000 - Queue:14 - Zeroes:215
+Visited 7057000 - Queue:14 - Zeroes:223
+Visited 7058000 - Queue:16 - Zeroes:169
+Visited 7059000 - Queue:11 - Zeroes:220
+Visited 7060000 - Queue:16 - Zeroes:189
+Visited 7061000 - Queue:11 - Zeroes:199
+Visited 7062000 - Queue:12 - Zeroes:204
+Visited 7063000 - Queue:12 - Zeroes:160
+Visited 7064000 - Queue:10 - Zeroes:214
+Visited 7065000 - Queue:10 - Zeroes:171
+Visited 7066000 - Queue:12 - Zeroes:208
+Visited 7067000 - Queue:13 - Zeroes:190
+Visited 7068000 - Queue:15 - Zeroes:196
+Visited 7069000 - Queue:17 - Zeroes:206
+Visited 7070000 - Queue:16 - Zeroes:186
+Visited 7071000 - Queue:18 - Zeroes:168
+Visited 7072000 - Queue:12 - Zeroes:209
+Visited 7073000 - Queue:12 - Zeroes:177
+Visited 7074000 - Queue:17 - Zeroes:189
+Visited 7075000 - Queue:18 - Zeroes:210
+Visited 7076000 - Queue:12 - Zeroes:214
+Visited 7077000 - Queue:10 - Zeroes:239
+Visited 7078000 - Queue:8 - Zeroes:250
+Visited 7079000 - Queue:10 - Zeroes:192
+Visited 7080000 - Queue:10 - Zeroes:214
+Visited 7081000 - Queue:15 - Zeroes:170
+Visited 7082000 - Queue:12 - Zeroes:224
+Visited 7083000 - Queue:12 - Zeroes:192
+Visited 7084000 - Queue:9 - Zeroes:222
+Visited 7085000 - Queue:12 - Zeroes:220
+Visited 7086000 - Queue:15 - Zeroes:221
+Visited 7087000 - Queue:14 - Zeroes:236
+Visited 7088000 - Queue:16 - Zeroes:199
+Visited 7089000 - Queue:17 - Zeroes:200
+Visited 7090000 - Queue:14 - Zeroes:234
+Visited 7091000 - Queue:15 - Zeroes:228
+Visited 7092000 - Queue:17 - Zeroes:200
+Visited 7093000 - Queue:14 - Zeroes:220
+Visited 7094000 - Queue:14 - Zeroes:194
+Visited 7095000 - Queue:18 - Zeroes:212
+Visited 7096000 - Queue:11 - Zeroes:217
+Visited 7097000 - Queue:14 - Zeroes:212
+Visited 7098000 - Queue:20 - Zeroes:235
+Visited 7099000 - Queue:15 - Zeroes:204
+Visited 7100000 - Queue:16 - Zeroes:189
+Visited 7101000 - Queue:15 - Zeroes:200
+Visited 7102000 - Queue:13 - Zeroes:230
+Visited 7103000 - Queue:13 - Zeroes:178
+Visited 7104000 - Queue:14 - Zeroes:185
+Visited 7105000 - Queue:11 - Zeroes:237
+Visited 7106000 - Queue:10 - Zeroes:216
+Visited 7107000 - Queue:16 - Zeroes:182
+Visited 7108000 - Queue:14 - Zeroes:212
+Visited 7109000 - Queue:13 - Zeroes:226
+Visited 7110000 - Queue:8 - Zeroes:232
+Visited 7111000 - Queue:14 - Zeroes:176
+Visited 7112000 - Queue:13 - Zeroes:215
+Visited 7113000 - Queue:10 - Zeroes:239
+Visited 7114000 - Queue:18 - Zeroes:221
+Visited 7115000 - Queue:15 - Zeroes:213
+Visited 7116000 - Queue:12 - Zeroes:187
+Visited 7117000 - Queue:16 - Zeroes:221
+Visited 7118000 - Queue:15 - Zeroes:204
+Visited 7119000 - Queue:14 - Zeroes:214
+Visited 7120000 - Queue:18 - Zeroes:192
+Visited 7121000 - Queue:19 - Zeroes:175
+Visited 7122000 - Queue:14 - Zeroes:215
+Visited 7123000 - Queue:15 - Zeroes:209
+Visited 7124000 - Queue:19 - Zeroes:197
+Visited 7125000 - Queue:14 - Zeroes:211
+Visited 7126000 - Queue:21 - Zeroes:189
+Visited 7127000 - Queue:18 - Zeroes:192
+Visited 7128000 - Queue:18 - Zeroes:188
+Visited 7129000 - Queue:18 - Zeroes:186
+Visited 7130000 - Queue:16 - Zeroes:200
+Visited 7131000 - Queue:14 - Zeroes:198
+Visited 7132000 - Queue:12 - Zeroes:226
+Visited 7133000 - Queue:11 - Zeroes:218
+Visited 7134000 - Queue:11 - Zeroes:244
+Visited 7135000 - Queue:15 - Zeroes:204
+Visited 7136000 - Queue:19 - Zeroes:208
+Visited 7137000 - Queue:20 - Zeroes:194
+Visited 7138000 - Queue:15 - Zeroes:219
+Visited 7139000 - Queue:17 - Zeroes:233
+Visited 7140000 - Queue:21 - Zeroes:180
+Visited 7141000 - Queue:18 - Zeroes:210
+Visited 7142000 - Queue:15 - Zeroes:172
+Visited 7143000 - Queue:13 - Zeroes:211
+Visited 7144000 - Queue:13 - Zeroes:214
+Visited 7145000 - Queue:18 - Zeroes:205
+Visited 7146000 - Queue:14 - Zeroes:194
+Visited 7147000 - Queue:14 - Zeroes:197
+Visited 7148000 - Queue:18 - Zeroes:208
+Visited 7149000 - Queue:16 - Zeroes:198
+Visited 7150000 - Queue:14 - Zeroes:224
+Visited 7151000 - Queue:17 - Zeroes:169
+Visited 7152000 - Queue:13 - Zeroes:197
+Visited 7153000 - Queue:13 - Zeroes:201
+Visited 7154000 - Queue:14 - Zeroes:217
+Visited 7155000 - Queue:15 - Zeroes:224
+Visited 7156000 - Queue:13 - Zeroes:202
+Visited 7157000 - Queue:13 - Zeroes:175
+Visited 7158000 - Queue:22 - Zeroes:194
+Visited 7159000 - Queue:17 - Zeroes:198
+Visited 7160000 - Queue:15 - Zeroes:204
+Visited 7161000 - Queue:20 - Zeroes:183
+Visited 7162000 - Queue:16 - Zeroes:177
+Visited 7163000 - Queue:19 - Zeroes:182
+Visited 7164000 - Queue:17 - Zeroes:179
+Visited 7165000 - Queue:11 - Zeroes:225
+Visited 7166000 - Queue:14 - Zeroes:201
+Visited 7167000 - Queue:12 - Zeroes:201
+Visited 7168000 - Queue:16 - Zeroes:214
+Visited 7169000 - Queue:13 - Zeroes:195
+Visited 7170000 - Queue:12 - Zeroes:196
+Visited 7171000 - Queue:15 - Zeroes:190
+Visited 7172000 - Queue:12 - Zeroes:214
+Visited 7173000 - Queue:12 - Zeroes:222
+Visited 7174000 - Queue:21 - Zeroes:190
+Visited 7175000 - Queue:21 - Zeroes:160
+Visited 7176000 - Queue:17 - Zeroes:199
+Visited 7177000 - Queue:17 - Zeroes:189
+Visited 7178000 - Queue:18 - Zeroes:154
+Visited 7179000 - Queue:16 - Zeroes:174
+Visited 7180000 - Queue:15 - Zeroes:198
+Visited 7181000 - Queue:14 - Zeroes:192
+Visited 7182000 - Queue:14 - Zeroes:218
+Visited 7183000 - Queue:15 - Zeroes:175
+Visited 7184000 - Queue:11 - Zeroes:184
+Visited 7185000 - Queue:16 - Zeroes:207
+Visited 7186000 - Queue:16 - Zeroes:200
+Visited 7187000 - Queue:15 - Zeroes:186
+Visited 7188000 - Queue:12 - Zeroes:192
+Visited 7189000 - Queue:17 - Zeroes:199
+Visited 7190000 - Queue:13 - Zeroes:207
+Visited 7191000 - Queue:16 - Zeroes:175
+Visited 7192000 - Queue:15 - Zeroes:190
+Visited 7193000 - Queue:19 - Zeroes:181
+Visited 7194000 - Queue:19 - Zeroes:183
+Visited 7195000 - Queue:14 - Zeroes:211
+Visited 7196000 - Queue:14 - Zeroes:203
+Visited 7197000 - Queue:17 - Zeroes:181
+Visited 7198000 - Queue:16 - Zeroes:178
+Visited 7199000 - Queue:15 - Zeroes:185
+Visited 7200000 - Queue:13 - Zeroes:211
+Visited 7201000 - Queue:13 - Zeroes:213
+Visited 7202000 - Queue:13 - Zeroes:213
+Visited 7203000 - Queue:7 - Zeroes:240
+Visited 7204000 - Queue:13 - Zeroes:215
+Visited 7205000 - Queue:13 - Zeroes:157
+Visited 7206000 - Queue:17 - Zeroes:172
+Visited 7207000 - Queue:12 - Zeroes:224
+Visited 7208000 - Queue:10 - Zeroes:215
+Visited 7209000 - Queue:18 - Zeroes:183
+Visited 7210000 - Queue:17 - Zeroes:198
+Visited 7211000 - Queue:17 - Zeroes:177
+Visited 7212000 - Queue:18 - Zeroes:188
+Visited 7213000 - Queue:17 - Zeroes:161
+Visited 7214000 - Queue:17 - Zeroes:177
+Visited 7215000 - Queue:18 - Zeroes:194
+Visited 7216000 - Queue:16 - Zeroes:183
+Visited 7217000 - Queue:14 - Zeroes:194
+Visited 7218000 - Queue:15 - Zeroes:205
+Visited 7219000 - Queue:18 - Zeroes:179
+Visited 7220000 - Queue:15 - Zeroes:186
+Visited 7221000 - Queue:14 - Zeroes:211
+Visited 7222000 - Queue:17 - Zeroes:188
+Visited 7223000 - Queue:15 - Zeroes:183
+Visited 7224000 - Queue:14 - Zeroes:205
+Visited 7225000 - Queue:10 - Zeroes:205
+Visited 7226000 - Queue:16 - Zeroes:214
+Visited 7227000 - Queue:14 - Zeroes:226
+Visited 7228000 - Queue:11 - Zeroes:227
+Visited 7229000 - Queue:13 - Zeroes:195
+Visited 7230000 - Queue:15 - Zeroes:181
+Visited 7231000 - Queue:19 - Zeroes:185
+Visited 7232000 - Queue:20 - Zeroes:196
+Visited 7233000 - Queue:14 - Zeroes:186
+Visited 7234000 - Queue:17 - Zeroes:173
+Visited 7235000 - Queue:17 - Zeroes:204
+Visited 7236000 - Queue:15 - Zeroes:195
+Visited 7237000 - Queue:14 - Zeroes:201
+Visited 7238000 - Queue:16 - Zeroes:175
+Visited 7239000 - Queue:20 - Zeroes:178
+Visited 7240000 - Queue:14 - Zeroes:183
+Visited 7241000 - Queue:13 - Zeroes:184
+Visited 7242000 - Queue:10 - Zeroes:230
+Visited 7243000 - Queue:16 - Zeroes:177
+Visited 7244000 - Queue:16 - Zeroes:200
+Visited 7245000 - Queue:15 - Zeroes:226
+Visited 7246000 - Queue:17 - Zeroes:224
+Visited 7247000 - Queue:15 - Zeroes:192
+Visited 7248000 - Queue:14 - Zeroes:202
+Visited 7249000 - Queue:11 - Zeroes:242
+Visited 7250000 - Queue:13 - Zeroes:172
+Visited 7251000 - Queue:12 - Zeroes:188
+Visited 7252000 - Queue:11 - Zeroes:202
+Visited 7253000 - Queue:16 - Zeroes:200
+Visited 7254000 - Queue:12 - Zeroes:227
+Visited 7255000 - Queue:13 - Zeroes:210
+Visited 7256000 - Queue:14 - Zeroes:192
+Visited 7257000 - Queue:15 - Zeroes:169
+Visited 7258000 - Queue:16 - Zeroes:167
+Visited 7259000 - Queue:12 - Zeroes:154
+Visited 7260000 - Queue:13 - Zeroes:173
+Visited 7261000 - Queue:13 - Zeroes:171
+Visited 7262000 - Queue:11 - Zeroes:183
+Visited 7263000 - Queue:13 - Zeroes:224
+Visited 7264000 - Queue:12 - Zeroes:190
+Visited 7265000 - Queue:12 - Zeroes:198
+Visited 7266000 - Queue:10 - Zeroes:182
+Visited 7267000 - Queue:10 - Zeroes:214
+Visited 7268000 - Queue:11 - Zeroes:200
+Visited 7269000 - Queue:9 - Zeroes:222
+Visited 7270000 - Queue:11 - Zeroes:219
+Visited 7271000 - Queue:10 - Zeroes:195
+Visited 7272000 - Queue:11 - Zeroes:191
+Visited 7273000 - Queue:14 - Zeroes:209
+Visited 7274000 - Queue:13 - Zeroes:200
+Visited 7275000 - Queue:9 - Zeroes:216
+Visited 7276000 - Queue:11 - Zeroes:189
+Visited 7277000 - Queue:13 - Zeroes:196
+Visited 7278000 - Queue:12 - Zeroes:225
+Visited 7279000 - Queue:11 - Zeroes:175
+Visited 7280000 - Queue:13 - Zeroes:203
+Visited 7281000 - Queue:14 - Zeroes:198
+Visited 7282000 - Queue:15 - Zeroes:169
+Visited 7283000 - Queue:12 - Zeroes:172
+Visited 7284000 - Queue:10 - Zeroes:222
+Visited 7285000 - Queue:13 - Zeroes:211
+Visited 7286000 - Queue:14 - Zeroes:216
+Visited 7287000 - Queue:10 - Zeroes:224
+Visited 7288000 - Queue:9 - Zeroes:242
+Visited 7289000 - Queue:12 - Zeroes:196
+Visited 7290000 - Queue:12 - Zeroes:164
+Visited 7291000 - Queue:10 - Zeroes:185
+Visited 7292000 - Queue:20 - Zeroes:153
+Visited 7293000 - Queue:16 - Zeroes:209
+Visited 7294000 - Queue:21 - Zeroes:182
+Visited 7295000 - Queue:15 - Zeroes:192
+Visited 7296000 - Queue:18 - Zeroes:180
+Visited 7297000 - Queue:18 - Zeroes:197
+Visited 7298000 - Queue:21 - Zeroes:183
+Visited 7299000 - Queue:18 - Zeroes:184
+Visited 7300000 - Queue:20 - Zeroes:179
+Visited 7301000 - Queue:18 - Zeroes:165
+Visited 7302000 - Queue:17 - Zeroes:206
+Visited 7303000 - Queue:15 - Zeroes:188
+Visited 7304000 - Queue:14 - Zeroes:171
+Visited 7305000 - Queue:15 - Zeroes:227
+Visited 7306000 - Queue:17 - Zeroes:195
+Visited 7307000 - Queue:20 - Zeroes:207
+Visited 7308000 - Queue:17 - Zeroes:223
+Visited 7309000 - Queue:18 - Zeroes:183
+Visited 7310000 - Queue:18 - Zeroes:214
+Visited 7311000 - Queue:16 - Zeroes:138
+Visited 7312000 - Queue:15 - Zeroes:211
+Visited 7313000 - Queue:23 - Zeroes:156
+Visited 7314000 - Queue:16 - Zeroes:210
+Visited 7315000 - Queue:18 - Zeroes:210
+Visited 7316000 - Queue:19 - Zeroes:203
+Visited 7317000 - Queue:15 - Zeroes:213
+Visited 7318000 - Queue:19 - Zeroes:188
+Visited 7319000 - Queue:16 - Zeroes:200
+Visited 7320000 - Queue:17 - Zeroes:175
+Visited 7321000 - Queue:16 - Zeroes:227
+Visited 7322000 - Queue:17 - Zeroes:192
+Visited 7323000 - Queue:19 - Zeroes:203
+Visited 7324000 - Queue:20 - Zeroes:193
+Visited 7325000 - Queue:23 - Zeroes:174
+Visited 7326000 - Queue:19 - Zeroes:169
+Visited 7327000 - Queue:19 - Zeroes:200
+Visited 7328000 - Queue:19 - Zeroes:155
+Visited 7329000 - Queue:18 - Zeroes:182
+Visited 7330000 - Queue:17 - Zeroes:202
+Visited 7331000 - Queue:18 - Zeroes:189
+Visited 7332000 - Queue:19 - Zeroes:162
+Visited 7333000 - Queue:17 - Zeroes:176
+Visited 7334000 - Queue:17 - Zeroes:195
+Visited 7335000 - Queue:16 - Zeroes:163
+Visited 7336000 - Queue:19 - Zeroes:164
+Visited 7337000 - Queue:15 - Zeroes:171
+Visited 7338000 - Queue:22 - Zeroes:190
+Visited 7339000 - Queue:25 - Zeroes:178
+Visited 7340000 - Queue:17 - Zeroes:175
+Visited 7341000 - Queue:18 - Zeroes:191
+Visited 7342000 - Queue:18 - Zeroes:134
+Visited 7343000 - Queue:17 - Zeroes:185
+Visited 7344000 - Queue:14 - Zeroes:193
+Visited 7345000 - Queue:19 - Zeroes:179
+Visited 7346000 - Queue:19 - Zeroes:183
+Visited 7347000 - Queue:19 - Zeroes:202
+Visited 7348000 - Queue:20 - Zeroes:165
+Visited 7349000 - Queue:19 - Zeroes:202
+Visited 7350000 - Queue:21 - Zeroes:196
+Visited 7351000 - Queue:17 - Zeroes:225
+Visited 7352000 - Queue:17 - Zeroes:225
+Visited 7353000 - Queue:19 - Zeroes:194
+Visited 7354000 - Queue:16 - Zeroes:209
+Visited 7355000 - Queue:17 - Zeroes:180
+Visited 7356000 - Queue:23 - Zeroes:180
+Visited 7357000 - Queue:17 - Zeroes:238
+Visited 7358000 - Queue:16 - Zeroes:222
+Visited 7359000 - Queue:17 - Zeroes:228
+Visited 7360000 - Queue:19 - Zeroes:160
+Visited 7361000 - Queue:19 - Zeroes:181
+Visited 7362000 - Queue:17 - Zeroes:215
+Visited 7363000 - Queue:19 - Zeroes:179
+Visited 7364000 - Queue:24 - Zeroes:191
+Visited 7365000 - Queue:18 - Zeroes:176
+Visited 7366000 - Queue:21 - Zeroes:178
+Visited 7367000 - Queue:27 - Zeroes:195
+Visited 7368000 - Queue:22 - Zeroes:150
+Visited 7369000 - Queue:19 - Zeroes:207
+Visited 7370000 - Queue:20 - Zeroes:190
+Visited 7371000 - Queue:17 - Zeroes:208
+Visited 7372000 - Queue:20 - Zeroes:171
+Visited 7373000 - Queue:19 - Zeroes:207
+Visited 7374000 - Queue:17 - Zeroes:215
+Visited 7375000 - Queue:16 - Zeroes:209
+Visited 7376000 - Queue:18 - Zeroes:201
+Visited 7377000 - Queue:20 - Zeroes:176
+Visited 7378000 - Queue:17 - Zeroes:162
+Visited 7379000 - Queue:17 - Zeroes:197
+Visited 7380000 - Queue:20 - Zeroes:177
+Visited 7381000 - Queue:19 - Zeroes:193
+Visited 7382000 - Queue:21 - Zeroes:187
+Visited 7383000 - Queue:18 - Zeroes:180
+Visited 7384000 - Queue:15 - Zeroes:198
+Visited 7385000 - Queue:22 - Zeroes:196
+Visited 7386000 - Queue:22 - Zeroes:200
+Visited 7387000 - Queue:23 - Zeroes:187
+Visited 7388000 - Queue:21 - Zeroes:200
+Visited 7389000 - Queue:22 - Zeroes:167
+Visited 7390000 - Queue:20 - Zeroes:172
+Visited 7391000 - Queue:22 - Zeroes:172
+Visited 7392000 - Queue:19 - Zeroes:181
+Visited 7393000 - Queue:22 - Zeroes:185
+Visited 7394000 - Queue:21 - Zeroes:173
+Visited 7395000 - Queue:17 - Zeroes:198
+Visited 7396000 - Queue:21 - Zeroes:195
+Visited 7397000 - Queue:19 - Zeroes:197
+Visited 7398000 - Queue:14 - Zeroes:232
+Visited 7399000 - Queue:16 - Zeroes:235
+Visited 7400000 - Queue:17 - Zeroes:193
+Visited 7401000 - Queue:20 - Zeroes:192
+Visited 7402000 - Queue:20 - Zeroes:176
+Visited 7403000 - Queue:21 - Zeroes:188
+Visited 7404000 - Queue:19 - Zeroes:196
+Visited 7405000 - Queue:13 - Zeroes:214
+Visited 7406000 - Queue:17 - Zeroes:148
+Visited 7407000 - Queue:14 - Zeroes:191
+Visited 7408000 - Queue:17 - Zeroes:213
+Visited 7409000 - Queue:15 - Zeroes:170
+Visited 7410000 - Queue:16 - Zeroes:147
+Visited 7411000 - Queue:17 - Zeroes:195
+Visited 7412000 - Queue:15 - Zeroes:154
+Visited 7413000 - Queue:18 - Zeroes:166
+Visited 7414000 - Queue:14 - Zeroes:192
+Visited 7415000 - Queue:17 - Zeroes:169
+Visited 7416000 - Queue:21 - Zeroes:164
+Visited 7417000 - Queue:15 - Zeroes:165
+Visited 7418000 - Queue:14 - Zeroes:212
+Visited 7419000 - Queue:16 - Zeroes:168
+Visited 7420000 - Queue:14 - Zeroes:224
+Visited 7421000 - Queue:21 - Zeroes:163
+Visited 7422000 - Queue:15 - Zeroes:224
+Visited 7423000 - Queue:21 - Zeroes:207
+Visited 7424000 - Queue:20 - Zeroes:197
+Visited 7425000 - Queue:22 - Zeroes:169
+Visited 7426000 - Queue:19 - Zeroes:179
+Visited 7427000 - Queue:20 - Zeroes:137
+Visited 7428000 - Queue:16 - Zeroes:222
+Visited 7429000 - Queue:19 - Zeroes:180
+Visited 7430000 - Queue:17 - Zeroes:142
+Visited 7431000 - Queue:17 - Zeroes:173
+Visited 7432000 - Queue:17 - Zeroes:161
+Visited 7433000 - Queue:18 - Zeroes:178
+Visited 7434000 - Queue:20 - Zeroes:188
+Visited 7435000 - Queue:22 - Zeroes:164
+Visited 7436000 - Queue:19 - Zeroes:186
+Visited 7437000 - Queue:16 - Zeroes:223
+Visited 7438000 - Queue:22 - Zeroes:172
+Visited 7439000 - Queue:18 - Zeroes:190
+Visited 7440000 - Queue:16 - Zeroes:175
+Visited 7441000 - Queue:19 - Zeroes:157
+Visited 7442000 - Queue:16 - Zeroes:145
+Visited 7443000 - Queue:19 - Zeroes:187
+Visited 7444000 - Queue:19 - Zeroes:191
+Visited 7445000 - Queue:19 - Zeroes:193
+Visited 7446000 - Queue:18 - Zeroes:198
+Visited 7447000 - Queue:17 - Zeroes:163
+Visited 7448000 - Queue:16 - Zeroes:195
+Visited 7449000 - Queue:16 - Zeroes:184
+Visited 7450000 - Queue:13 - Zeroes:237
+Visited 7451000 - Queue:16 - Zeroes:212
+Visited 7452000 - Queue:18 - Zeroes:163
+Visited 7453000 - Queue:18 - Zeroes:201
+Visited 7454000 - Queue:17 - Zeroes:167
+Visited 7455000 - Queue:16 - Zeroes:151
+Visited 7456000 - Queue:16 - Zeroes:213
+Visited 7457000 - Queue:14 - Zeroes:209
+Visited 7458000 - Queue:16 - Zeroes:177
+Visited 7459000 - Queue:20 - Zeroes:156
+Visited 7460000 - Queue:15 - Zeroes:229
+Visited 7461000 - Queue:16 - Zeroes:205
+Visited 7462000 - Queue:15 - Zeroes:184
+Visited 7463000 - Queue:18 - Zeroes:188
+Visited 7464000 - Queue:18 - Zeroes:167
+Visited 7465000 - Queue:17 - Zeroes:184
+Visited 7466000 - Queue:18 - Zeroes:199
+Visited 7467000 - Queue:17 - Zeroes:195
+Visited 7468000 - Queue:14 - Zeroes:193
+Visited 7469000 - Queue:16 - Zeroes:156
+Visited 7470000 - Queue:16 - Zeroes:183
+Visited 7471000 - Queue:18 - Zeroes:181
+Visited 7472000 - Queue:18 - Zeroes:205
+Visited 7473000 - Queue:15 - Zeroes:227
+Visited 7474000 - Queue:17 - Zeroes:202
+Visited 7475000 - Queue:14 - Zeroes:153
+Visited 7476000 - Queue:13 - Zeroes:226
+Visited 7477000 - Queue:17 - Zeroes:173
+Visited 7478000 - Queue:17 - Zeroes:198
+Visited 7479000 - Queue:17 - Zeroes:169
+Visited 7480000 - Queue:20 - Zeroes:158
+Visited 7481000 - Queue:18 - Zeroes:181
+Visited 7482000 - Queue:16 - Zeroes:164
+Visited 7483000 - Queue:15 - Zeroes:180
+Visited 7484000 - Queue:17 - Zeroes:154
+Visited 7485000 - Queue:16 - Zeroes:164
+Visited 7486000 - Queue:17 - Zeroes:153
+Visited 7487000 - Queue:18 - Zeroes:198
+Visited 7488000 - Queue:17 - Zeroes:149
+Visited 7489000 - Queue:12 - Zeroes:196
+Visited 7490000 - Queue:16 - Zeroes:222
+Visited 7491000 - Queue:14 - Zeroes:239
+Visited 7492000 - Queue:19 - Zeroes:169
+Visited 7493000 - Queue:15 - Zeroes:227
+Visited 7494000 - Queue:22 - Zeroes:213
+Visited 7495000 - Queue:21 - Zeroes:199
+Visited 7496000 - Queue:17 - Zeroes:221
+Visited 7497000 - Queue:17 - Zeroes:221
+Visited 7498000 - Queue:19 - Zeroes:225
+Visited 7499000 - Queue:16 - Zeroes:209
+Visited 7500000 - Queue:14 - Zeroes:243
+Visited 7501000 - Queue:20 - Zeroes:187
+Visited 7502000 - Queue:20 - Zeroes:178
+Visited 7503000 - Queue:15 - Zeroes:165
+Visited 7504000 - Queue:18 - Zeroes:200
+Visited 7505000 - Queue:18 - Zeroes:192
+Visited 7506000 - Queue:16 - Zeroes:192
+Visited 7507000 - Queue:16 - Zeroes:215
+Visited 7508000 - Queue:18 - Zeroes:184
+Visited 7509000 - Queue:15 - Zeroes:179
+Visited 7510000 - Queue:16 - Zeroes:215
+Visited 7511000 - Queue:16 - Zeroes:228
+Visited 7512000 - Queue:16 - Zeroes:161
+Visited 7513000 - Queue:20 - Zeroes:229
+Visited 7514000 - Queue:14 - Zeroes:234
+Visited 7515000 - Queue:17 - Zeroes:201
+Visited 7516000 - Queue:14 - Zeroes:211
+Visited 7517000 - Queue:16 - Zeroes:232
+Visited 7518000 - Queue:18 - Zeroes:206
+Visited 7519000 - Queue:15 - Zeroes:173
+Visited 7520000 - Queue:21 - Zeroes:200
+Visited 7521000 - Queue:15 - Zeroes:209
+Visited 7522000 - Queue:20 - Zeroes:163
+Visited 7523000 - Queue:17 - Zeroes:209
+Visited 7524000 - Queue:16 - Zeroes:207
+Visited 7525000 - Queue:15 - Zeroes:184
+Visited 7526000 - Queue:16 - Zeroes:201
+Visited 7527000 - Queue:21 - Zeroes:164
+Visited 7528000 - Queue:16 - Zeroes:216
+Visited 7529000 - Queue:18 - Zeroes:157
+Visited 7530000 - Queue:19 - Zeroes:158
+Visited 7531000 - Queue:17 - Zeroes:191
+Visited 7532000 - Queue:13 - Zeroes:217
+Visited 7533000 - Queue:13 - Zeroes:197
+Visited 7534000 - Queue:14 - Zeroes:160
+Visited 7535000 - Queue:16 - Zeroes:198
+Visited 7536000 - Queue:14 - Zeroes:198
+Visited 7537000 - Queue:13 - Zeroes:231
+Visited 7538000 - Queue:14 - Zeroes:174
+Visited 7539000 - Queue:14 - Zeroes:194
+Visited 7540000 - Queue:19 - Zeroes:173
+Visited 7541000 - Queue:17 - Zeroes:180
+Visited 7542000 - Queue:14 - Zeroes:180
+Visited 7543000 - Queue:14 - Zeroes:192
+Visited 7544000 - Queue:12 - Zeroes:231
+Visited 7545000 - Queue:18 - Zeroes:157
+Visited 7546000 - Queue:15 - Zeroes:215
+Visited 7547000 - Queue:15 - Zeroes:224
+Visited 7548000 - Queue:18 - Zeroes:220
+Visited 7549000 - Queue:17 - Zeroes:231
+Visited 7550000 - Queue:20 - Zeroes:183
+Visited 7551000 - Queue:17 - Zeroes:227
+Visited 7552000 - Queue:15 - Zeroes:188
+Visited 7553000 - Queue:14 - Zeroes:201
+Visited 7554000 - Queue:18 - Zeroes:198
+Visited 7555000 - Queue:18 - Zeroes:218
+Visited 7556000 - Queue:17 - Zeroes:199
+Visited 7557000 - Queue:15 - Zeroes:227
+Visited 7558000 - Queue:14 - Zeroes:202
+Visited 7559000 - Queue:15 - Zeroes:153
+Visited 7560000 - Queue:14 - Zeroes:219
+Visited 7561000 - Queue:16 - Zeroes:179
+Visited 7562000 - Queue:18 - Zeroes:201
+Visited 7563000 - Queue:17 - Zeroes:164
+Visited 7564000 - Queue:18 - Zeroes:221
+Visited 7565000 - Queue:18 - Zeroes:205
+Visited 7566000 - Queue:16 - Zeroes:235
+Visited 7567000 - Queue:17 - Zeroes:181
+Visited 7568000 - Queue:15 - Zeroes:211
+Visited 7569000 - Queue:18 - Zeroes:228
+Visited 7570000 - Queue:22 - Zeroes:213
+Visited 7571000 - Queue:17 - Zeroes:206
+Visited 7572000 - Queue:17 - Zeroes:219
+Visited 7573000 - Queue:18 - Zeroes:224
+Visited 7574000 - Queue:17 - Zeroes:203
+Visited 7575000 - Queue:18 - Zeroes:201
+Visited 7576000 - Queue:17 - Zeroes:199
+Visited 7577000 - Queue:18 - Zeroes:234
+Visited 7578000 - Queue:18 - Zeroes:225
+Visited 7579000 - Queue:18 - Zeroes:204
+Visited 7580000 - Queue:15 - Zeroes:218
+Visited 7581000 - Queue:18 - Zeroes:212
+Visited 7582000 - Queue:17 - Zeroes:190
+Visited 7583000 - Queue:16 - Zeroes:206
+Visited 7584000 - Queue:12 - Zeroes:248
+Visited 7585000 - Queue:20 - Zeroes:194
+Visited 7586000 - Queue:14 - Zeroes:223
+Visited 7587000 - Queue:13 - Zeroes:237
+Visited 7588000 - Queue:18 - Zeroes:173
+Visited 7589000 - Queue:17 - Zeroes:229
+Visited 7590000 - Queue:17 - Zeroes:203
+Visited 7591000 - Queue:19 - Zeroes:172
+Visited 7592000 - Queue:19 - Zeroes:183
+Visited 7593000 - Queue:19 - Zeroes:163
+Visited 7594000 - Queue:14 - Zeroes:226
+Visited 7595000 - Queue:15 - Zeroes:168
+Visited 7596000 - Queue:21 - Zeroes:210
+Visited 7597000 - Queue:19 - Zeroes:224
+Visited 7598000 - Queue:17 - Zeroes:186
+Visited 7599000 - Queue:20 - Zeroes:217
+Visited 7600000 - Queue:15 - Zeroes:211
+Visited 7601000 - Queue:14 - Zeroes:211
+Visited 7602000 - Queue:18 - Zeroes:137
+Visited 7603000 - Queue:16 - Zeroes:184
+Visited 7604000 - Queue:15 - Zeroes:161
+Visited 7605000 - Queue:20 - Zeroes:182
+Visited 7606000 - Queue:19 - Zeroes:199
+Visited 7607000 - Queue:19 - Zeroes:227
+Visited 7608000 - Queue:18 - Zeroes:195
+Visited 7609000 - Queue:16 - Zeroes:187
+Visited 7610000 - Queue:19 - Zeroes:181
+Visited 7611000 - Queue:19 - Zeroes:142
+Visited 7612000 - Queue:17 - Zeroes:179
+Visited 7613000 - Queue:16 - Zeroes:219
+Visited 7614000 - Queue:16 - Zeroes:182
+Visited 7615000 - Queue:17 - Zeroes:164
+Visited 7616000 - Queue:16 - Zeroes:151
+Visited 7617000 - Queue:15 - Zeroes:209
+Visited 7618000 - Queue:16 - Zeroes:176
+Visited 7619000 - Queue:19 - Zeroes:148
+Visited 7620000 - Queue:17 - Zeroes:198
+Visited 7621000 - Queue:13 - Zeroes:181
+Visited 7622000 - Queue:20 - Zeroes:147
+Visited 7623000 - Queue:17 - Zeroes:138
+Visited 7624000 - Queue:14 - Zeroes:195
+Visited 7625000 - Queue:16 - Zeroes:197
+Visited 7626000 - Queue:19 - Zeroes:200
+Visited 7627000 - Queue:21 - Zeroes:202
+Visited 7628000 - Queue:22 - Zeroes:182
+Visited 7629000 - Queue:20 - Zeroes:189
+Visited 7630000 - Queue:19 - Zeroes:134
+Visited 7631000 - Queue:21 - Zeroes:174
+Visited 7632000 - Queue:15 - Zeroes:220
+Visited 7633000 - Queue:16 - Zeroes:169
+Visited 7634000 - Queue:16 - Zeroes:176
+Visited 7635000 - Queue:12 - Zeroes:230
+Visited 7636000 - Queue:13 - Zeroes:178
+Visited 7637000 - Queue:16 - Zeroes:202
+Visited 7638000 - Queue:14 - Zeroes:211
+Visited 7639000 - Queue:13 - Zeroes:219
+Visited 7640000 - Queue:21 - Zeroes:191
+Visited 7641000 - Queue:17 - Zeroes:202
+Visited 7642000 - Queue:15 - Zeroes:208
+Visited 7643000 - Queue:17 - Zeroes:177
+Visited 7644000 - Queue:16 - Zeroes:188
+Visited 7645000 - Queue:18 - Zeroes:144
+Visited 7646000 - Queue:13 - Zeroes:202
+Visited 7647000 - Queue:20 - Zeroes:217
+Visited 7648000 - Queue:19 - Zeroes:229
+Visited 7649000 - Queue:12 - Zeroes:206
+Visited 7650000 - Queue:13 - Zeroes:235
+Visited 7651000 - Queue:16 - Zeroes:237
+Visited 7652000 - Queue:17 - Zeroes:210
+Visited 7653000 - Queue:14 - Zeroes:232
+Visited 7654000 - Queue:12 - Zeroes:222
+Visited 7655000 - Queue:15 - Zeroes:209
+Visited 7656000 - Queue:15 - Zeroes:211
+Visited 7657000 - Queue:23 - Zeroes:224
+Visited 7658000 - Queue:16 - Zeroes:187
+Visited 7659000 - Queue:15 - Zeroes:206
+Visited 7660000 - Queue:20 - Zeroes:199
+Visited 7661000 - Queue:18 - Zeroes:235
+Visited 7662000 - Queue:17 - Zeroes:186
+Visited 7663000 - Queue:18 - Zeroes:228
+Visited 7664000 - Queue:17 - Zeroes:218
+Visited 7665000 - Queue:14 - Zeroes:220
+Visited 7666000 - Queue:20 - Zeroes:214
+Visited 7667000 - Queue:13 - Zeroes:195
+Visited 7668000 - Queue:16 - Zeroes:194
+Visited 7669000 - Queue:20 - Zeroes:204
+Visited 7670000 - Queue:19 - Zeroes:204
+Visited 7671000 - Queue:16 - Zeroes:214
+Visited 7672000 - Queue:14 - Zeroes:234
+Visited 7673000 - Queue:20 - Zeroes:208
+Visited 7674000 - Queue:14 - Zeroes:184
+Visited 7675000 - Queue:15 - Zeroes:237
+Visited 7676000 - Queue:21 - Zeroes:200
+Visited 7677000 - Queue:16 - Zeroes:210
+Visited 7678000 - Queue:18 - Zeroes:207
+Visited 7679000 - Queue:15 - Zeroes:199
+Visited 7680000 - Queue:15 - Zeroes:232
+Visited 7681000 - Queue:13 - Zeroes:203
+Visited 7682000 - Queue:15 - Zeroes:182
+Visited 7683000 - Queue:12 - Zeroes:187
+Visited 7684000 - Queue:14 - Zeroes:231
+Visited 7685000 - Queue:17 - Zeroes:212
+Visited 7686000 - Queue:15 - Zeroes:207
+Visited 7687000 - Queue:12 - Zeroes:249
+Visited 7688000 - Queue:14 - Zeroes:217
+Visited 7689000 - Queue:16 - Zeroes:196
+Visited 7690000 - Queue:16 - Zeroes:188
+Visited 7691000 - Queue:12 - Zeroes:147
+Visited 7692000 - Queue:18 - Zeroes:204
+Visited 7693000 - Queue:20 - Zeroes:225
+Visited 7694000 - Queue:14 - Zeroes:169
+Visited 7695000 - Queue:19 - Zeroes:213
+Visited 7696000 - Queue:20 - Zeroes:190
+Visited 7697000 - Queue:20 - Zeroes:186
+Visited 7698000 - Queue:14 - Zeroes:190
+Visited 7699000 - Queue:20 - Zeroes:212
+Visited 7700000 - Queue:22 - Zeroes:199
+Visited 7701000 - Queue:17 - Zeroes:209
+Visited 7702000 - Queue:15 - Zeroes:233
+Visited 7703000 - Queue:15 - Zeroes:206
+Visited 7704000 - Queue:14 - Zeroes:198
+Visited 7705000 - Queue:18 - Zeroes:176
+Visited 7706000 - Queue:19 - Zeroes:190
+Visited 7707000 - Queue:14 - Zeroes:199
+Visited 7708000 - Queue:14 - Zeroes:229
+Visited 7709000 - Queue:17 - Zeroes:208
+Visited 7710000 - Queue:14 - Zeroes:237
+Visited 7711000 - Queue:16 - Zeroes:212
+Visited 7712000 - Queue:10 - Zeroes:236
+Visited 7713000 - Queue:16 - Zeroes:214
+Visited 7714000 - Queue:15 - Zeroes:198
+Visited 7715000 - Queue:17 - Zeroes:191
+Visited 7716000 - Queue:13 - Zeroes:202
+Visited 7717000 - Queue:13 - Zeroes:162
+Visited 7718000 - Queue:13 - Zeroes:252
+Visited 7719000 - Queue:15 - Zeroes:180
+Visited 7720000 - Queue:14 - Zeroes:202
+Visited 7721000 - Queue:14 - Zeroes:208
+Visited 7722000 - Queue:16 - Zeroes:151
+Visited 7723000 - Queue:12 - Zeroes:198
+Visited 7724000 - Queue:15 - Zeroes:205
+Visited 7725000 - Queue:13 - Zeroes:182
+Visited 7726000 - Queue:16 - Zeroes:214
+Visited 7727000 - Queue:11 - Zeroes:180
+Visited 7728000 - Queue:21 - Zeroes:201
+Visited 7729000 - Queue:21 - Zeroes:200
+Visited 7730000 - Queue:14 - Zeroes:236
+Visited 7731000 - Queue:24 - Zeroes:189
+Visited 7732000 - Queue:17 - Zeroes:204
+Visited 7733000 - Queue:18 - Zeroes:198
+Visited 7734000 - Queue:16 - Zeroes:225
+Visited 7735000 - Queue:20 - Zeroes:179
+Visited 7736000 - Queue:17 - Zeroes:166
+Visited 7737000 - Queue:18 - Zeroes:190
+Visited 7738000 - Queue:18 - Zeroes:215
+Visited 7739000 - Queue:16 - Zeroes:196
+Visited 7740000 - Queue:12 - Zeroes:195
+Visited 7741000 - Queue:14 - Zeroes:209
+Visited 7742000 - Queue:14 - Zeroes:202
+Visited 7743000 - Queue:16 - Zeroes:210
+Visited 7744000 - Queue:15 - Zeroes:222
+Visited 7745000 - Queue:11 - Zeroes:207
+Visited 7746000 - Queue:16 - Zeroes:216
+Visited 7747000 - Queue:13 - Zeroes:241
+Visited 7748000 - Queue:21 - Zeroes:184
+Visited 7749000 - Queue:14 - Zeroes:209
+Visited 7750000 - Queue:15 - Zeroes:176
+Visited 7751000 - Queue:19 - Zeroes:199
+Visited 7752000 - Queue:15 - Zeroes:176
+Visited 7753000 - Queue:17 - Zeroes:185
+Visited 7754000 - Queue:17 - Zeroes:175
+Visited 7755000 - Queue:14 - Zeroes:204
+Visited 7756000 - Queue:17 - Zeroes:166
+Visited 7757000 - Queue:14 - Zeroes:216
+Visited 7758000 - Queue:16 - Zeroes:174
+Visited 7759000 - Queue:16 - Zeroes:197
+Visited 7760000 - Queue:16 - Zeroes:200
+Visited 7761000 - Queue:13 - Zeroes:223
+Visited 7762000 - Queue:16 - Zeroes:223
+Visited 7763000 - Queue:18 - Zeroes:210
+Visited 7764000 - Queue:14 - Zeroes:212
+Visited 7765000 - Queue:16 - Zeroes:165
+Visited 7766000 - Queue:14 - Zeroes:208
+Visited 7767000 - Queue:15 - Zeroes:205
+Visited 7768000 - Queue:22 - Zeroes:197
+Visited 7769000 - Queue:19 - Zeroes:169
+Visited 7770000 - Queue:20 - Zeroes:189
+Visited 7771000 - Queue:17 - Zeroes:175
+Visited 7772000 - Queue:16 - Zeroes:198
+Visited 7773000 - Queue:18 - Zeroes:180
+Visited 7774000 - Queue:16 - Zeroes:202
+Visited 7775000 - Queue:15 - Zeroes:216
+Visited 7776000 - Queue:20 - Zeroes:182
+Visited 7777000 - Queue:18 - Zeroes:207
+Visited 7778000 - Queue:19 - Zeroes:198
+Visited 7779000 - Queue:18 - Zeroes:192
+Visited 7780000 - Queue:18 - Zeroes:153
+Visited 7781000 - Queue:20 - Zeroes:150
+Visited 7782000 - Queue:18 - Zeroes:188
+Visited 7783000 - Queue:16 - Zeroes:171
+Visited 7784000 - Queue:15 - Zeroes:202
+Visited 7785000 - Queue:18 - Zeroes:188
+Visited 7786000 - Queue:17 - Zeroes:193
+Visited 7787000 - Queue:17 - Zeroes:209
+Visited 7788000 - Queue:18 - Zeroes:178
+Visited 7789000 - Queue:17 - Zeroes:164
+Visited 7790000 - Queue:15 - Zeroes:189
+Visited 7791000 - Queue:16 - Zeroes:193
+Visited 7792000 - Queue:16 - Zeroes:190
+Visited 7793000 - Queue:16 - Zeroes:159
+Visited 7794000 - Queue:17 - Zeroes:150
+Visited 7795000 - Queue:15 - Zeroes:220
+Visited 7796000 - Queue:14 - Zeroes:209
+Visited 7797000 - Queue:16 - Zeroes:224
+Visited 7798000 - Queue:17 - Zeroes:174
+Visited 7799000 - Queue:17 - Zeroes:160
+Visited 7800000 - Queue:17 - Zeroes:170
+Visited 7801000 - Queue:14 - Zeroes:205
+Visited 7802000 - Queue:19 - Zeroes:189
+Visited 7803000 - Queue:18 - Zeroes:175
+Visited 7804000 - Queue:19 - Zeroes:207
+Visited 7805000 - Queue:18 - Zeroes:159
+Visited 7806000 - Queue:15 - Zeroes:196
+Visited 7807000 - Queue:17 - Zeroes:164
+Visited 7808000 - Queue:15 - Zeroes:175
+Visited 7809000 - Queue:18 - Zeroes:195
+Visited 7810000 - Queue:18 - Zeroes:198
+Visited 7811000 - Queue:14 - Zeroes:170
+Visited 7812000 - Queue:17 - Zeroes:164
+Visited 7813000 - Queue:15 - Zeroes:157
+Visited 7814000 - Queue:17 - Zeroes:187
+Visited 7815000 - Queue:20 - Zeroes:151
+Visited 7816000 - Queue:15 - Zeroes:219
+Visited 7817000 - Queue:16 - Zeroes:213
+Visited 7818000 - Queue:15 - Zeroes:169
+Visited 7819000 - Queue:17 - Zeroes:215
+Visited 7820000 - Queue:18 - Zeroes:168
+Visited 7821000 - Queue:17 - Zeroes:165
+Visited 7822000 - Queue:14 - Zeroes:187
+Visited 7823000 - Queue:13 - Zeroes:162
+Visited 7824000 - Queue:11 - Zeroes:239
+Visited 7825000 - Queue:16 - Zeroes:235
+Visited 7826000 - Queue:18 - Zeroes:208
+Visited 7827000 - Queue:17 - Zeroes:220
+Visited 7828000 - Queue:12 - Zeroes:208
+Visited 7829000 - Queue:18 - Zeroes:204
+Visited 7830000 - Queue:17 - Zeroes:182
+Visited 7831000 - Queue:17 - Zeroes:215
+Visited 7832000 - Queue:16 - Zeroes:201
+Visited 7833000 - Queue:14 - Zeroes:217
+Visited 7834000 - Queue:16 - Zeroes:209
+Visited 7835000 - Queue:14 - Zeroes:225
+Visited 7836000 - Queue:16 - Zeroes:227
+Visited 7837000 - Queue:13 - Zeroes:208
+Visited 7838000 - Queue:15 - Zeroes:196
+Visited 7839000 - Queue:13 - Zeroes:238
+Visited 7840000 - Queue:15 - Zeroes:185
+Visited 7841000 - Queue:17 - Zeroes:204
+Visited 7842000 - Queue:10 - Zeroes:222
+Visited 7843000 - Queue:14 - Zeroes:212
+Visited 7844000 - Queue:17 - Zeroes:205
+Visited 7845000 - Queue:15 - Zeroes:176
+Visited 7846000 - Queue:12 - Zeroes:198
+Visited 7847000 - Queue:13 - Zeroes:180
+Visited 7848000 - Queue:16 - Zeroes:199
+Visited 7849000 - Queue:14 - Zeroes:220
+Visited 7850000 - Queue:11 - Zeroes:187
+Visited 7851000 - Queue:11 - Zeroes:162
+Visited 7852000 - Queue:22 - Zeroes:158
+Visited 7853000 - Queue:21 - Zeroes:186
+Visited 7854000 - Queue:16 - Zeroes:164
+Visited 7855000 - Queue:18 - Zeroes:150
+Visited 7856000 - Queue:17 - Zeroes:174
+Visited 7857000 - Queue:21 - Zeroes:180
+Visited 7858000 - Queue:18 - Zeroes:168
+Visited 7859000 - Queue:15 - Zeroes:234
+Visited 7860000 - Queue:22 - Zeroes:189
+Visited 7861000 - Queue:19 - Zeroes:200
+Visited 7862000 - Queue:20 - Zeroes:164
+Visited 7863000 - Queue:20 - Zeroes:162
+Visited 7864000 - Queue:17 - Zeroes:196
+Visited 7865000 - Queue:18 - Zeroes:157
+Visited 7866000 - Queue:18 - Zeroes:159
+Visited 7867000 - Queue:19 - Zeroes:195
+Visited 7868000 - Queue:15 - Zeroes:180
+Visited 7869000 - Queue:17 - Zeroes:147
+Visited 7870000 - Queue:16 - Zeroes:218
+Visited 7871000 - Queue:20 - Zeroes:176
+Visited 7872000 - Queue:15 - Zeroes:214
+Visited 7873000 - Queue:20 - Zeroes:171
+Visited 7874000 - Queue:17 - Zeroes:201
+Visited 7875000 - Queue:15 - Zeroes:190
+Visited 7876000 - Queue:18 - Zeroes:182
+Visited 7877000 - Queue:16 - Zeroes:183
+Visited 7878000 - Queue:15 - Zeroes:178
+Visited 7879000 - Queue:16 - Zeroes:187
+Visited 7880000 - Queue:15 - Zeroes:218
+Visited 7881000 - Queue:13 - Zeroes:205
+Visited 7882000 - Queue:14 - Zeroes:194
+Visited 7883000 - Queue:15 - Zeroes:195
+Visited 7884000 - Queue:17 - Zeroes:192
+Visited 7885000 - Queue:16 - Zeroes:191
+Visited 7886000 - Queue:13 - Zeroes:207
+Visited 7887000 - Queue:13 - Zeroes:202
+Visited 7888000 - Queue:19 - Zeroes:192
+Visited 7889000 - Queue:19 - Zeroes:192
+Visited 7890000 - Queue:17 - Zeroes:189
+Visited 7891000 - Queue:20 - Zeroes:165
+Visited 7892000 - Queue:16 - Zeroes:163
+Visited 7893000 - Queue:16 - Zeroes:219
+Visited 7894000 - Queue:20 - Zeroes:167
+Visited 7895000 - Queue:15 - Zeroes:175
+Visited 7896000 - Queue:14 - Zeroes:212
+Visited 7897000 - Queue:16 - Zeroes:186
+Visited 7898000 - Queue:15 - Zeroes:219
+Visited 7899000 - Queue:13 - Zeroes:197
+Visited 7900000 - Queue:14 - Zeroes:211
+Visited 7901000 - Queue:16 - Zeroes:185
+Visited 7902000 - Queue:15 - Zeroes:204
+Visited 7903000 - Queue:14 - Zeroes:214
+Visited 7904000 - Queue:17 - Zeroes:200
+Visited 7905000 - Queue:19 - Zeroes:143
+Visited 7906000 - Queue:16 - Zeroes:194
+Visited 7907000 - Queue:15 - Zeroes:182
+Visited 7908000 - Queue:15 - Zeroes:180
+Visited 7909000 - Queue:15 - Zeroes:154
+Visited 7910000 - Queue:14 - Zeroes:193
+Visited 7911000 - Queue:13 - Zeroes:149
+Visited 7912000 - Queue:16 - Zeroes:159
+7912396
